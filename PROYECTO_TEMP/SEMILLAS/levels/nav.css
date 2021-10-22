@@ -12,7 +12,7 @@ body{padding:0;text-align:center}
 @media all and (min-width:1px){
 	body{
 		min-height:100vh;
-		background:#fdfdfd url(_style_bg.png);
+		background:#fdfdfd url(https://nojipiz.github.io/PROYECTO_TEMP/SEMILLAS/imgs/Picture3.png);
   		background-position: 70% 30%;
   		background-color: #FFD424;
 	}
