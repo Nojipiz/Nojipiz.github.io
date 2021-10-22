@@ -1,0 +1,97 @@
+@font-face {
+  src: url(/fonts/bubble.ttf);
+  font-family: bubble;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  width: 100%;
+  height: 85%;
+  font-family: bubble;
+}
+
+body {
+  margin: 0;
+  background-image: url(/imgs/Picture3.png);
+  justify-content: center;
+  height: 100%;
+  background-position: 70% 30%;
+  background-color: #FFD424;
+  padding: 3em;
+}
+
+.colorFrame {
+  margin: 0 auto;
+  width: 80%;
+  height: 100%;
+  background-color: #ffe787;
+  display: grid;
+  place-items: center;
+  padding: 25px;
+  border-style: solid;
+  color: black;
+}
+
+.innerColorFrame {
+  background-color: #FFD424;
+  width: 100%;
+  height: 100%;
+  vertical-align: center;
+  display: grid;
+  border-style: solid;
+  color: black;
+  place-items: center;
+}
+
+#mainTitle {
+  margin-top: 50px;
+  background: linear-gradient(to right, #ff39b6, #f048b2 70%);
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 2px black;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  vertical-align: top;
+  font-size: 8em;
+  font-family: bubble;
+  z-index: 100;
+}
+
+#playButton {
+  background-color: #ff39b6;
+  width: 150px;
+  height: 80px;
+  border-radius: 15px;
+  color: white;
+  font-size: 30px;
+  font-weight: 300;
+  border-style: solid;
+  border-color: black;
+  z-index: 100;
+  margin-top: -150px;
+  font-family: bubble;
+  -webkit-text-stroke: 1px black;
+}
+
+p {
+  font-size: 2em;
+  color: white;
+  z-index: 100;
+  margin-top: -180px;
+  -webkit-text-stroke: 1px black;
+}
+
+#tableAnim {
+  position: absolute;
+  align-self: flex-end;
+  width: 70%;
+}
+
+#eskimo {
+  width: 50%;
+  height: 50%;
+}
+
+/*# sourceMappingURL=style.css.map */

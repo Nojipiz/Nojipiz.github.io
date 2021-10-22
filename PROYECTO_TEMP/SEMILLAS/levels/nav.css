@@ -1,19 +1,72 @@
+@font-face {
+  src: url(/fonts/bubble.ttf);
+  font-family: bubble;
+}
+header{
+  display: grid;
+  place-items: center;
+}
 html,body{min-height:100%}
 html{padding:0;background:#fdfdfd}
 body{padding:0;text-align:center}
 @media all and (min-width:1px){
-	body{min-height:100vh;background:#fdfdfd url(_style_bg.png) no-repeat 0 0 fixed;background-size:cover}
+	body{
+		min-height:100vh;
+		background:#fdfdfd url(_style_bg.png);
+  		background-position: 70% 30%;
+  		background-color: #FFD424;
+	}
 }
+
+.game{
+	display: grid;
+	place-items: center; 
+}
+
 #lbOverlay{background:#f3f3f3}
-#content{width:100%;max-width:1230px;min-width:300px;margin:0 auto;text-align:left;position:relative;padding-bottom:21px}
-#main-wrapper{padding:0 25px 1px 305px;background:#fff url(_style_left_column.gif) repeat-y 0 0;box-shadow:rgba(0,0,0,0.4) 0 3px 8px}
-.no-nav #main-wrapper{padding-left:25px;background:#fff}
-#main{width:100%}
+#content{
+	width:100%;max-width:1230px;min-width:300px;margin:0 auto;text-align:left;position:relative;padding-bottom:21px
+background-color: black;
+}
+#main-wrapper{
+	padding:0 25px 1px 305px;
+	box-shadow:rgba(0,0,0,0.4) 0 3px 8px
+}
+.no-nav #main-wrapper{
+	padding-left:25px;
+}
+#main{
+	width:100%
+}
 #header,#emptyHeader{border:none;padding:40px 210px 20px 20px;background:none;font-size:2em}
 #emptyHeader{height:42px}
-#headerContent{color:#cc6715;text-shadow:1px 1px 1px #FFF}
-#nodeDecoration{padding:0 30px 0 0;margin:0 0 25px 0;border:none;text-shadow:none;background:none;border-bottom:3px solid #00843D;background:url(_style_logo.png) no-repeat 100% 50%!important}
-#nodeTitle{padding:17px 0px 15px 10px;color:#00843D;letter-spacing:.5px;font-size:1.7em;font-weight:bold;margin-right:2.3em}
+#headerContent{
+  margin-top: 50px;
+  background: linear-gradient(to right, #ff39b6, #f048b2 70%);
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 2px black;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  vertical-align: top;
+  font-size: 3em;
+  font-family: bubble;
+  z-index: 100;
+}
+#nodeDecoration{
+	background: #ffd424;
+	padding:0 30px 0 0;margin:0 0 25px 0;
+	border:none;
+	text-shadow:none;
+	box-shadow:0px 18px 16px -6px rgba(0,0,0,0.37);border-radius:50px;border:10px solid #ffe787
+}
+#nodeTitle{
+	padding:17px 0px 15px 10px;
+	color:#17a0ee;
+	letter-spacing:.5px;
+	font-size:3em;
+	font-family: bubble;
+	-webkit-text-stroke: 2px black;
+}
 #siteFooter{padding:5px 20px 20px 20px;text-align:right;margin-top:-56px}
 /* Navigation */
 #skipNav{font-size:.95em;text-align:center;padding-top:25px}
@@ -67,7 +120,6 @@ a .exe-client-search-result{color:#00566a}
 
 @media all and (max-width:768px){
 	#content{width:100%;border:none;margin:0}
-	#main-wrapper{background:#fff}
 	#header,#emptyHeader{padding-left:20px;padding-right:20px;background-position:50% 23px}
 	#exe-client-search-text{max-width:70%}
 	#topPagination{display:none}

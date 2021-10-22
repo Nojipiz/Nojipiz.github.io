@@ -1,3 +1,14 @@
+function hideAll(){
+		$("#siteNav").hide();
+		$(document.body).addClass("no-nav");
+		myTheme.params("add");
+		var tit = $exe_i18n.menu+" ("+$exe_i18n.show.toLowerCase()+")";
+		$("#toggle-nav").attr("class","show-nav").attr("title",tit);
+
+}
+
+hideAll();
+
 var myTheme = {
 	collapseActivities : false, // Minimize interactive activities
 	// Activities (to minify if collapseActivities is true)

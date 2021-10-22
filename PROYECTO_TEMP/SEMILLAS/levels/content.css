@@ -4,6 +4,11 @@
 @font-face{font-family:'Atkinson Hyperlegible';font-style:normal;font-weight:300;src:local('Atkinson Hyperlegible'),local('EncodeSans-Light'),url(Atkinson-Hyperlegible-Regular-102a.woff2) format('woff2');unicode-range:U+0100-024F,U+0259,U+1E00-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
 /* latin */
 @font-face{font-family:'Atkinson Hyperlegible';font-style:normal;font-weight:300;src:local('Atkinson Hyperlegible'),local('EncodeSans-Light'),url(Atkinson-Hyperlegible-Regular-102a.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face {
+  src: url(../fonts/bubble.ttf);
+  font-family: bubble;
+}
+
 html,body{min-height:100%}
 html{padding:0}
 body{font:1.05em/1.4 "Atkinson Hyperlegible",Arial,Helvetica,sans-serif;padding:20px;margin:0;text-align:left;color:#444;background:#fff}
@@ -17,7 +22,7 @@ header#header #headerContent h1{color:#cc6715;border:none;margin-right:75px}
 #header{height:auto;font-size:1em;text-align:left;letter-spacing:.5px;padding:16px 25px 16px 0px;border:none;margin-bottom:0;background:url(_style_logo.png) no-repeat 100% 50%}
 .exe-single-page #header{font-size:1.55em}
 #nodeTitle{font-size:1.55em;margin:0;color:#00843D;padding-right:60px}
-#header h1,#nodeTitle{text-shadow:0 0 8px rgba(255,255,255,.6),0 0 5px rgba(255,255,255,.6),0 0 2px rgba(255,255,255,.9)}
+
 #exe-node-0 header.nodeDecoration h1.nodeTitle{color:#fff;background-color:#00843d;padding:5px 5px 5px 15px;margin:5px 0 0 0 !important;border:none!important}
 h1#nodeTitle{margin-right:30px}
 /* Safe long titles in SCORM */
@@ -29,7 +34,7 @@ h1#nodeTitle{margin-right:30px}
 }
 /* .nodeTitle in single page */
 .nodeTitle{padding:5px 0;border-bottom:2px solid #00843D;margin:5px 5px 5px 0;color:#00843D;letter-spacing:.5px;font-size:1.5em;padding-right:60px}
-h1{font-size:1.5em;color:#444;letter-spacing:.5px;font-weight:bold}
+h1{font-size:1.5em;color:#444;letter-spacing:.5px;font-weight:bold, font-family: bubble;}
 h2{font-size:1.4em;color:#444;letter-spacing:.5px;font-weight:bold}
 h3{font-size:1.35em;color:#444;letter-spacing:.5px;font-weight:bold}
 h4{font-size:1.2em;font-weight:bold;color:#444}
@@ -52,12 +57,37 @@ section.previousnext{display:none}
 /* Blue iDevices (default) */
 
 /* iDevice title */
-.iDeviceTitle{font-size:1.4em;display:inline;font-weight:normal;vertical-align:middle;top:15px;color:#2E2E2E;letter-spacing:.5px;font-weight:bold}
+.iDeviceTitle{
+	text-align: justify;
+	font-size:2.5em;
+	display:inline;
+	 -webkit-text-stroke: 1.5px black;
+	vertical-align:middle;
+	top:15px;
+	color:#ff39b6;
+	letter-spacing:1px;
+	font-weight:bold;
+	font-family: bubble;
+}
 /* iDevice content */
 .iDevice_content{overflow:auto;text-align:left}
 /*.iDevice_inner*/
-.iDevice_inner{padding:10px 20px 20px 20px;background:#fff;box-shadow:0px 18px 16px -6px rgba(0,0,0,0.37);border-radius:20px;border:4px solid #0065AB}
-.iDeviceTitle{color:#0065AB}
+.iDevice_inner{
+	padding:10px 20px 20px 20px;
+	background:#ffe787;box-shadow:0px 18px 16px -6px rgba(0,0,0,0.37);border-radius:20px;border:4px solid #ffe787
+}
+.iDeviceTitle{	
+	text-align: justify;
+	font-size:2.5em;
+	display:inline;
+	 -webkit-text-stroke: 1.5px black;
+	vertical-align:middle;
+	top:15px;
+	color:#ff39b6;
+	letter-spacing:1px;
+	font-weight:bold;
+	font-family: bubble;
+}
 /* iDevice icons */
 .iDevice_header{background:url(icon_udl_exp_interactivo.svg) no-repeat 0 50%;padding:5px 0 5px 80px;position:relative;min-height:60px}
 .iDevice .iDevice_header.iDevice_header_noIcon{padding:0 0 0 10px;background-image:none}
