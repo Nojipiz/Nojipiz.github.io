@@ -1,7 +1,8 @@
 @font-face {
-  src: url(/fonts/bubble.ttf);
+  src: url(https://nojipiz.github.io/PROYECTO_TEMP/SEMILLAS/fonts/bubble.ttf);
   font-family: bubble;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -15,7 +16,7 @@ html {
 
 body {
   margin: 0;
-  background-image: url(/imgs/Picture3.png);
+  background-image: url(https://nojipiz.github.io/PROYECTO_TEMP/SEMILLAS/imgs/Picture3.png);
   justify-content: center;
   height: 100%;
   background-position: 70% 30%;
