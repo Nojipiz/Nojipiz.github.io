@@ -23,16 +23,15 @@
 	2015. Refactored and completed by Ignacio Gros (http://www.gros.es) for http://exelearning.net/
 */
 
+
 function hideAll(){
 		$("#siteNav").hide();
 		$(document.body).addClass("no-nav");
-		myTheme.params("add");
 		var tit = $exe_i18n.menu+" ("+$exe_i18n.show.toLowerCase()+")";
 		$("#toggle-nav").attr("class","show-nav").attr("title",tit);
-
 }
 
-hideAll();
+
 if(typeof($exe_i18n)=='undefined')$exe_i18n={previous:"Previous",next:"Next",show:"Show",hide:"Hide",showFeedback:"Show Feedback",hideFeedback:"Hide Feedback",correct:"Correct",incorrect:"Incorrect",menu:"Menu",download:"Download",yourScoreIs:"Your score is ",dataError:"Error recovering data",epubJSerror:"This might not work in this ePub reader.",solution:"Solution",epubDisabled:"This activity does not work in ePub.",print:"Print"}
 var $exe={init:function(){var bod=$('body');$exe.addRoles();if(!bod.hasClass("exe-single-page")){var t=$exe.isIE();if(t){if(t>7)$exe.iDeviceToggler.init()}else $exe.iDeviceToggler.init()}
 this.hasMultimediaGalleries=false;this.setMultimediaGalleries();this.setModalWindowContentSize();if(!bod.hasClass("exe-epub3")){var n=document.body.innerHTML;if(this.hasMultimediaGalleries||$(".mediaelement").length>0){$exe.loadMediaPlayer.getPlayer();}}else{bod.addClass("js");}

@@ -18,6 +18,13 @@ body{padding:0;text-align:center}
 	}
 }
 
+.nextCustom{
+	font-size: 2em;
+	font-family: bubble;
+	-webkit-text-stroke: 1.5px black;
+	color: linear-gradient(to right, #ff39b6, #f048b2 70%);
+}
+
 .game{
 	display: grid;
 	place-items: center; 

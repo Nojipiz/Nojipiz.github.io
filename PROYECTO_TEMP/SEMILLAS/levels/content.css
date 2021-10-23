@@ -14,7 +14,10 @@ html{padding:0}
 body{font:1.05em/1.4 "Atkinson Hyperlegible",Arial,Helvetica,sans-serif;padding:20px;margin:0;text-align:left;color:#444;background:#fff}
 input,select,textarea,.feedback{font-family:"Atkinson Hyperlegible",​Arial,Helvetica,sans-serif;font-size:1em}
 .pre-code,.highlighted-code{font-family:"Atkinson Hyperlegible",​Arial,Helvetica,sans-serif;font-size:.9em;border-radius:0}
-a{color:#cc6715}
+a{
+		color: #fc1ef5;
+}
+
 /* Header is also in single page */
 header#header #headerContent h1{color:#cc6715;border:none;margin-right:75px}
 #header h1{margin:0;font-size:1em;color:#00843D}
