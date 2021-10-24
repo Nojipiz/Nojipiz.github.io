@@ -8,6 +8,28 @@
  * License: http://creativecommons.org/licenses/by-sa/4.0/
  */
 
+ 
+function audioOne(){
+  let sound = new Audio('sounds/audio1.mp4');
+  sound.play();
+}
+
+function audioTwo(){
+  let sound = new Audio('sounds/audio2.mp4');
+  sound.play();
+}
+
+
+function audioThree(){
+  let sound = new Audio('sounds/audio3.mp4');
+  sound.play();
+}
+
+function audioFour(){
+  let sound = new Audio('sounds/audio4.mp4');
+  sound.play();
+}
+
 
 function playCorrectSound(){
   let sound = new Audio('good.mpeg');
