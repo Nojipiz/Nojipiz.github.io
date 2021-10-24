@@ -23,6 +23,9 @@
 	2015. Refactored and completed by Ignacio Gros (http://www.gros.es) for http://exelearning.net/
 */
 
+const toLevelOne = () => {
+  window.location.href = 'nivel_1.html';
+}
 
 function hideAll(){
 		$("#siteNav").hide();

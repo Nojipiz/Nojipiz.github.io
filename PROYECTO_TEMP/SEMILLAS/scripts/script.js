@@ -1,5 +1,5 @@
 const startFun = () => {
-  window.location.href = './levels/nivel_1.html';
+  window.location.href = './levels/index.html';
 }
 
 const startSound = () => {
