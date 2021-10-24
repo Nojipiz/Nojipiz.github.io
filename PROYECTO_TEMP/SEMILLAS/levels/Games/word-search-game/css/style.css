@@ -1,4 +1,8 @@
 /* CSS reset */
+html{
+  background-color: #ffe787;
+}
+
 
 body, h1 {
   margin: 0;

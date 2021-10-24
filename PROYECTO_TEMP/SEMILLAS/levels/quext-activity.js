@@ -7,6 +7,18 @@
  * Translator: Antonio Juan Delgado García
  * License: http://creativecommons.org/licenses/by-sa/4.0/
  */
+
+
+function playCorrectSound(){
+  let sound = new Audio('good.mpeg');
+  sound.play()
+}
+
+function playBadSound(){
+  let sound = new Audio('bad.mpeg');
+  sound.play()
+}
+
 var $eXeQuExt = {
     idevicePath: "",
     borderColors: {
@@ -1314,6 +1326,9 @@ var $eXeQuExt = {
         return message;
     },
     getMessageCorrectAnswer: function (npts, instance) {
+        //NOJIPIZ CODE, TO SOUNDS
+        playCorrectSound();
+        //NOJIPIZ CODE, TO SOUNDS
         var mOptions = $eXeQuExt.options[instance],
             messageCorrect = $eXeQuExt.getRetroFeedMessages(true, instance),
             message = "",
@@ -1327,6 +1342,9 @@ var $eXeQuExt = {
         return message;
     },
     getMessageErrorAnswer: function (npts, instance) {
+        //NOJIPIZ CODE, TO SOUNDS
+        playBadSound();
+        //NOJIPIZ CODE, TO SOUNDS
         var mOptions = $eXeQuExt.options[instance],
             messageError = $eXeQuExt.getRetroFeedMessages(false, instance),
             message = "",
