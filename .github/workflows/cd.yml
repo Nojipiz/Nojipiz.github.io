@@ -1,0 +1,40 @@
+name: deploy
+
+on:
+  push:
+    tags: 
+      - "v*.*.*"
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: jetli/wasm-pack-action@v0.3.0
+      with:
+        # Optional version of wasm-pack to install(eg. '0.9.1', 'latest')
+        version: 'latest'
+    - name: Build
+      run: |
+        cp .env.example .env
+        npm run install
+        npm run build
+    - name: Package
+      shell: bash
+      run: |
+        tar czvf target/conduit-wasm.tar.gz crates/conduit-wasm/dist
+        zip -r target/conduit-wasm.zip crates/conduit-wasm/dist
+        shasum -a 256 target/conduit-wasm.tar.gz > target/conduit-wasm.tar.gz.sha256
+        shasum -a 256 target/conduit-wasm.zip > target/conduit-wasm.zip.sha256
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          target/conduit-wasm.tar.gz
+          target/conduit-wasm.tar.gz.sha256
+          target/conduit-wasm.zip
+          target/conduit-wasm.zip.sha256
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
