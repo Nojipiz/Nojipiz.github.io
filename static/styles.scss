@@ -12,7 +12,9 @@ body{
 .app{
   display: flex;
   flex-direction: column;
+  min-width: 224px;
   width: 40%;
+  min-height: 327px;
   height: 50vh;
   justify-content: center;
   align-items: center;
@@ -42,16 +44,11 @@ body{
 }
 
 .webassembly-logo{
-  background: url('./wasm.png');
-  width: 12em;
-  height: 12em;
-  background-size: 12em 12em;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .webassembly-logo{
+  background: url('./wasm.png') no-repeat;
+  width: 30%;
+  padding-bottom:30%;
+  background-size: 100% 100%;
     animation: wa-logo-anim infinite 1.5s alternate;
-  }
 }
 
 @keyframes wa-logo-anim {
