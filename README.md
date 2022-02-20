@@ -1,6 +1,6 @@
-# My Awesome Yew App
+# My software developer portfolio
 
-This is the official base template for [Create Yew App](https://github.com/jetli/create-yew-app).
+This page is under construction but you can see the code meanwhile :D
 
 ## How to install
 
