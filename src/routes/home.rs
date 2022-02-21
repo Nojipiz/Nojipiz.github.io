@@ -5,7 +5,13 @@ use yew::prelude::*;
 pub fn home() -> Html {
     html! {
         <>
-        <p> {"hi mom"}</p>
+        <section id="home">
+        <p>{"home"} </p>
+        </section>
+        <section id="contact">
+        <p>{"contact"} </p>
+        </section>
+
         </>
     }
 }

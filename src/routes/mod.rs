@@ -10,6 +10,8 @@ use home::Home;
 pub enum AppRoute {
     #[at("/")]
     Home,
+    #[at("/#:section")]
+    HomeSections { section: String },
     #[not_found]
     #[at("/page-not-found")]
     PageNotFound,
@@ -18,6 +20,7 @@ pub enum AppRoute {
 /// Switch app routes
 pub fn switch(routes: &AppRoute) -> Html {
     match routes.clone() {
+        AppRoute::HomeSections { section } => html! {<p> {section} </p>},
         AppRoute::Home => html! { <Home /> },
         AppRoute::PageNotFound => html! { "Page not found" },
     }

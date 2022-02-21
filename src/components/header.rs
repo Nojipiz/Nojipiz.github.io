@@ -1,4 +1,7 @@
 use yew::prelude::*;
+use yew_router::prelude::*;
+
+use crate::routes::AppRoute;
 
 struct Section {
     name: String,
@@ -26,20 +29,17 @@ pub fn nav() -> Html {
         },
     ];
 
-    let actual_section = use_state(|| 0);
-
-    let change_section = {
-        let actual_section = actual_section.clone();
-        Callback::from(move |_| actual_section.set(*actual_section + 1))
-    };
-
     html! {
         <>
-        {*actual_section}
         <nav>
         {
             sections.iter().map(|section| {
-            html!{<ul onclick={&change_section}> {&section.name} </ul>}
+            html!{
+                <Link<AppRoute>
+                    to={AppRoute::HomeSections { section: section.section_id.clone() }}>
+                    { section.name.clone() }
+                </Link<AppRoute>>
+                }
             }).collect::<Html>()
         }
         </nav>
