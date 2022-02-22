@@ -27,7 +27,6 @@ pub fn nav() -> Html {
     ];
 
     html! {
-        <>
         <nav>
         {
             sections.iter().map(|section| {
@@ -39,6 +38,5 @@ pub fn nav() -> Html {
             }).collect::<Html>()
         }
         </nav>
-        </>
     }
 }
