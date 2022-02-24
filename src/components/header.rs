@@ -31,7 +31,7 @@ pub fn nav() -> Html {
         {
             sections.iter().map(|section| {
             html!{
-                <a href={section.section_id.clone()}>
+                <a class="" href={section.section_id.clone()}>
                 {section.name.clone()}
                 </a>
                 }
