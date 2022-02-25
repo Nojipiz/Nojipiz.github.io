@@ -1,5 +1,6 @@
 use crate::components::about::About;
 use crate::components::contact::Contact;
+use crate::components::footer::Footer;
 use crate::components::home::Home;
 use crate::components::portfolio::Portfolio;
 use yew::prelude::*;
@@ -21,6 +22,7 @@ impl Component for Main {
             <Portfolio />
             <About />
             <Contact />
+            <Footer />
             </>
         }
     }
