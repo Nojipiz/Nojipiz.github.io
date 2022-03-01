@@ -21,7 +21,7 @@ impl Component for Main {
             <Home />
             <Portfolio />
             <About />
-            <Contact />
+            <Contact lang="es"/>
             <Footer />
             </>
         }

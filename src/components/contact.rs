@@ -1,14 +1,26 @@
 use yew::prelude::*;
 
 #[function_component(Contact)]
-pub fn contact() -> Html {
+pub fn contact(props: &ContactProps) -> Html {
+    let language = use_state(|| String::from(&props.lang));
+    let click = {
+        let language = language.clone();
+        Callback::from(move |_| language.set(String::from("hola")))
+    };
     html! {
         <section id="contact" class="contactSection">
-        {"Contact section"}
         <ContactWaysContainer />
         <ContactForm />
+        <p> {"Language"} </p>
+        <p> {(*language).clone()} </p>
+        <button onclick={click}>{"Buenas"}</button>
         </section>
     }
+}
+
+#[derive(Properties, PartialEq)]
+pub struct ContactProps {
+    pub lang: String,
 }
 
 #[function_component(ContactForm)]
