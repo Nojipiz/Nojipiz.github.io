@@ -8,7 +8,9 @@ use crate::app::AppProperties;
 pub fn portfolio() -> Html {
     html! {
         <section id="portfolio" class="portfolioSection">
-        <h2> {get_portfolio_title()} </h2>
+        <h2 class="rigthTitle"> {get_portfolio_title()} </h2>
+        <PortfolioElement/>
+        <h2 class="leftTitle"> {get_portfolio_title()} </h2>
         </section>
     }
 }
@@ -24,4 +26,11 @@ fn get_portfolio_title() -> String {
         _ => "Portfolio",
     }
     .to_owned()
+}
+
+#[function_component(PortfolioElement)]
+fn get_portfolio_element() -> Html {
+    html! {
+        <p>{"Todo: Here will be a portfolio element loaded from github page"}</p>
+    }
 }

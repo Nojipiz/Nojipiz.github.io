@@ -8,8 +8,8 @@ use crate::app::AppProperties;
 pub fn home() -> Html {
     html! {
         <section id="home" class="homeSection">
-        <PresentationTitle />
-        <DonutAnimation />
+            <PresentationTitle />
+            <DonutAnimation />
         </section>
     }
 }
@@ -17,7 +17,7 @@ pub fn home() -> Html {
 #[function_component(DonutAnimation)]
 fn donut_animation() -> Html {
     html! {
-        <p>{"Here will be a Donut code"}</p>
+        <p>{"Here will be the Donut code"}</p>
         //Todo: Generate donut code in rust
     }
 }
