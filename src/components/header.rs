@@ -2,7 +2,7 @@ use yew::prelude::*;
 use yewdux::prelude::{BasicStore, Dispatcher};
 use yewdux_functional::*;
 
-use crate::app::AppProperties;
+use crate::{app::AppProperties, languages::languages::get_header_section_names};
 
 #[function_component(Header)]
 pub fn nav() -> Html {
@@ -49,8 +49,9 @@ fn get_properties_buttons() -> Html {
 
 #[function_component(NavigationSections)]
 fn nav_sections() -> Html {
+    let store = use_store::<BasicStore<AppProperties>>();
     let section_ids: [&str; 4] = ["/#home", "/#portfolio", "/#about", "/#contact"];
-    let section_names: [&str; 4] = get_section_names();
+    let section_names: [&str; 4] = get_header_section_names(store);
     html! {
         <nav>
         {
@@ -64,17 +65,5 @@ fn nav_sections() -> Html {
         }
         </nav>
 
-    }
-}
-
-fn get_section_names() -> [&'static str; 4] {
-    let store = use_store::<BasicStore<AppProperties>>();
-    let language = store
-        .state()
-        .map(|state| state.language.clone())
-        .unwrap_or_default();
-    match language.as_str() {
-        "es" => ["Home", "Portafolio", "Sobre", "Contacto"],
-        _ => ["Home", "Portfolio", "About", "Contact"],
     }
 }

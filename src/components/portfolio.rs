@@ -2,30 +2,19 @@ use yew::prelude::*;
 use yewdux::prelude::BasicStore;
 use yewdux_functional::use_store;
 
-use crate::app::AppProperties;
+use crate::{app::AppProperties, languages::languages::get_portfolio_content_text};
 
 #[function_component(Portfolio)]
 pub fn portfolio() -> Html {
+    let store = use_store::<BasicStore<AppProperties>>();
+    let content_text = get_portfolio_content_text(store);
     html! {
         <section id="portfolio" class="portfolioSection">
-        <h2 class="rigthTitle"> {get_portfolio_title()} </h2>
+        <h2 class="rigthTitle"> {content_text[0]} </h2>
         <PortfolioElement/>
-        <h2 class="leftTitle"> {get_portfolio_title()} </h2>
+        <h2 class="leftTitle"> {content_text[0]} </h2>
         </section>
     }
-}
-
-fn get_portfolio_title() -> String {
-    let store = use_store::<BasicStore<AppProperties>>();
-    let language = store
-        .state()
-        .map(|s| s.language.clone())
-        .unwrap_or_default();
-    match language.as_str() {
-        "es" => "Portafolio",
-        _ => "Portfolio",
-    }
-    .to_owned()
 }
 
 #[function_component(PortfolioElement)]

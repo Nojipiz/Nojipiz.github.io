@@ -29,9 +29,9 @@ fn presentation_title() -> Html {
     let presentation_text = get_home_content_text(store);
     html! {
         <p>
-            {presentation_text[0].as_str()}<b>{presentation_text[1].as_str()} </b>
+            {presentation_text[0]}<b>{presentation_text[1]} </b>
             <br/>
-            {presentation_text[2].as_str()}
+            {presentation_text[2]}
         </p>
     }
 }
