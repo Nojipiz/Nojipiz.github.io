@@ -1,3 +1,4 @@
+use crate::languages::languages::*;
 use yew::prelude::*;
 use yewdux::prelude::BasicStore;
 use yewdux_functional::use_store;
@@ -25,23 +26,12 @@ fn donut_animation() -> Html {
 #[function_component(PresentationTitle)]
 fn presentation_title() -> Html {
     let store = use_store::<BasicStore<AppProperties>>();
-    let language: String = store
-        .state()
-        .map(|state| state.language.clone())
-        .unwrap_or_default();
-    let presentation_text: [&str; 3] = match language.as_str() {
-        "es" => [
-            "Hola, mi nombre es ",
-            "David",
-            "Soy desarrollador de software",
-        ],
-        _ => ["Hi, I'm ", "David", "I'm a software developer"],
-    };
+    let presentation_text = get_home_content_text(store);
     html! {
         <p>
-            {presentation_text[0]}<b>{presentation_text[1]} </b>
+            {presentation_text[0].as_str()}<b>{presentation_text[1].as_str()} </b>
             <br/>
-            {presentation_text[2]}
+            {presentation_text[2].as_str()}
         </p>
     }
 }
