@@ -1,9 +1,11 @@
-use yewdux::prelude::BasicStore;
+use yewdux::prelude::PersistentStore;
 use yewdux_functional::StoreRef;
 
 use crate::app::AppProperties;
 
-pub fn get_header_section_names(store: StoreRef<BasicStore<AppProperties>>) -> [&'static str; 4] {
+pub fn get_header_section_names(
+    store: StoreRef<PersistentStore<AppProperties>>,
+) -> [&'static str; 4] {
     let language = store
         .state()
         .map(|state| state.language.clone())
@@ -14,7 +16,7 @@ pub fn get_header_section_names(store: StoreRef<BasicStore<AppProperties>>) -> [
     }
 }
 
-pub fn get_home_content_text(store: StoreRef<BasicStore<AppProperties>>) -> [&'static str; 3] {
+pub fn get_home_content_text(store: StoreRef<PersistentStore<AppProperties>>) -> [&'static str; 3] {
     let language: String = store
         .state()
         .map(|state| state.language.clone())
@@ -29,7 +31,9 @@ pub fn get_home_content_text(store: StoreRef<BasicStore<AppProperties>>) -> [&'s
     }
 }
 
-pub fn get_portfolio_content_text(store: StoreRef<BasicStore<AppProperties>>) -> [&'static str; 1] {
+pub fn get_portfolio_content_text(
+    store: StoreRef<PersistentStore<AppProperties>>,
+) -> [&'static str; 1] {
     let language: String = store
         .state()
         .map(|state| state.language.clone())
@@ -40,7 +44,9 @@ pub fn get_portfolio_content_text(store: StoreRef<BasicStore<AppProperties>>) ->
     }
 }
 
-pub fn get_about_context_text(store: StoreRef<BasicStore<AppProperties>>) -> [&'static str; 5] {
+pub fn get_about_context_text(
+    store: StoreRef<PersistentStore<AppProperties>>,
+) -> [&'static str; 6] {
     let language: String = store
         .state()
         .map(|state| state.language.clone())
@@ -59,6 +65,7 @@ pub fn get_about_context_text(store: StoreRef<BasicStore<AppProperties>>) -> [&'
             En un proyecto, mi objetivo principal es resolver tu problema, 
             el valor de mi trabajo es por proyecto, de esta forma me puedo 
             concentrar en el producto sin tener que contar las horas que paso en el :)",
+            "Herramientas",
         ],
         _ => [
             "Who i am",
@@ -66,11 +73,58 @@ pub fn get_about_context_text(store: StoreRef<BasicStore<AppProperties>>) -> [&'
             I love coffee, competitive programming, anime and customizing 
             linux systems, passionate about writing code in every way.",
             "My skills",
-            "My work",
+            "Work",
             "I work to give you the most flawless code possible, the beautiful,
             clean, minimalist and easy-to-use interfaces are part of my work. In a project,
             my main objective is to solve your problem, the value of my work is per project, 
             so I can focus on finish it without count the hours :)",
+            "Toolbox",
         ],
+    }
+}
+
+pub fn get_contact_context_text(
+    store: StoreRef<PersistentStore<AppProperties>>,
+) -> [&'static str; 9] {
+    let language: String = store
+        .state()
+        .map(|state| state.language.clone())
+        .unwrap_or_default();
+    match language.as_str() {
+        "es" => [
+            "Contacto",
+            "Escribeme",
+            "Hablemos",
+            "Formulario de contacto",
+            "Tu nombre",
+            "Tu email",
+            "Asunto",
+            "Tu mensaje",
+            "Enviar",
+        ],
+        _ => [
+            "Contact",
+            "Mail me",
+            "Lets talk",
+            "Contact form",
+            "Your name",
+            "Your email",
+            "Subject",
+            "Your message",
+            "Send",
+        ],
+    }
+}
+
+pub fn get_footer_context_text(
+    store: StoreRef<PersistentStore<AppProperties>>,
+) -> [&'static str; 3] {
+    let language: String = store
+        .state()
+        .map(|state| state.language.clone())
+        .unwrap_or_default();
+    match language.as_str() {
+        "es" => ["Orlando Vargas", "Colombia", "nojipiz@gmail.com"],
+        _ => ["Orlando Vargas", "Colombia", "nojipiz@gmail.com"],
     }
 }
