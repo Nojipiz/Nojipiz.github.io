@@ -13,7 +13,7 @@ pub fn main() -> Html {
         <Home />
         <Portfolio />
         <About />
-         <Contact lang={"es"}/>
+         <Contact/>
         <Footer />
         </>
     }
