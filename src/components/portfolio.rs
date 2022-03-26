@@ -1,12 +1,12 @@
 use yew::prelude::*;
-use yewdux::prelude::BasicStore;
+use yewdux::prelude::PersistentStore;
 use yewdux_functional::use_store;
 
 use crate::{app::AppProperties, languages::languages::get_portfolio_content_text};
 
 #[function_component(Portfolio)]
 pub fn portfolio() -> Html {
-    let store = use_store::<BasicStore<AppProperties>>();
+    let store = use_store::<PersistentStore<AppProperties>>();
     let content_text = get_portfolio_content_text(store);
     html! {
         <section id="portfolio" class="portfolioSection">

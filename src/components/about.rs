@@ -1,12 +1,12 @@
 use yew::prelude::*;
-use yewdux::prelude::BasicStore;
+use yewdux::prelude::PersistentStore;
 use yewdux_functional::use_store;
 
 use crate::{app::AppProperties, languages::languages::get_about_context_text};
 
 #[function_component(About)]
 pub fn about() -> Html {
-    let store = use_store::<BasicStore<AppProperties>>();
+    let store = use_store::<PersistentStore<AppProperties>>();
     let content_text = get_about_context_text(store);
     html! {
         <section id="about" class="aboutSection">
@@ -52,5 +52,5 @@ fn my_work(props: &AboutProps) -> Html {
 
 #[derive(Properties, PartialEq)]
 struct AboutProps {
-    content: [&'static str; 5],
+    content: [&'static str; 6],
 }

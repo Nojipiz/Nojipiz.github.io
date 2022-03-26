@@ -1,5 +1,5 @@
 use yew::prelude::*;
-use yewdux::prelude::{BasicStore, Dispatcher};
+use yewdux::prelude::{Dispatcher, PersistentStore};
 use yewdux_functional::*;
 
 use crate::{app::AppProperties, languages::languages::get_header_section_names};
@@ -16,7 +16,7 @@ pub fn nav() -> Html {
 
 #[function_component(PropertiesButtons)]
 fn get_properties_buttons() -> Html {
-    let store = use_store::<BasicStore<AppProperties>>();
+    let store = use_store::<PersistentStore<AppProperties>>();
     let language = store
         .state()
         .map(|state| state.language.clone())
@@ -49,7 +49,7 @@ fn get_properties_buttons() -> Html {
 
 #[function_component(NavigationSections)]
 fn nav_sections() -> Html {
-    let store = use_store::<BasicStore<AppProperties>>();
+    let store = use_store::<PersistentStore<AppProperties>>();
     let section_ids: [&str; 4] = ["/#home", "/#portfolio", "/#about", "/#contact"];
     let section_names: [&str; 4] = get_header_section_names(store);
     html! {
@@ -64,6 +64,5 @@ fn nav_sections() -> Html {
             }).collect::<Html>()
         }
         </nav>
-
     }
 }

@@ -1,32 +1,32 @@
 use yew::prelude::*;
+use yewdux::prelude::PersistentStore;
+use yewdux_functional::use_store;
+
+use crate::{app::AppProperties, languages::languages::get_contact_context_text};
 
 #[function_component(Contact)]
-pub fn contact(props: &ContactProps) -> Html {
+pub fn contact() -> Html {
     html! {
         <section id="contact" class="contactSection">
-        <ContactWaysContainer />
-        <ContactForm />
-        <p> {props.lang.clone()} </p>
+            <ContactWaysContainer />
+            <ContactForm />
         </section>
     }
 }
 
-#[derive(Properties, PartialEq)]
-pub struct ContactProps {
-    pub lang: String,
-}
-
 #[function_component(ContactForm)]
 fn contact_form() -> Html {
+    let store = use_store::<PersistentStore<AppProperties>>();
+    let contact_content_text = get_contact_context_text(store);
     html! {
         <div>
-        <h1>{"Contact Form"}</h1>
+        <h1>{contact_content_text[3]}</h1>
         <form>
-            <input type="text" id="formName" name="name" placeholder="Your name.."/>
-            <input type="email" id="formEmail" name="email" placeholder="Your email.."/>
-            <input type="text" id="formSubject" name="subject" placeholder="Your subject.."/>
-            <input type="text" id="formMessage" name="message" placeholder="Your message.."/>
-            <input type="submit" value={"Send"}/>
+            <input type="text" id="formName" name="name" placeholder={contact_content_text[4]}/>
+            <input type="email" id="formEmail" name="email" placeholder={contact_content_text[5]}/>
+            <input type="text" id="formSubject" name="subject" placeholder={contact_content_text[6]}/>
+            <input type="text" id="formMessage" name="message" placeholder={contact_content_text[7]}/>
+            <input type="submit" value={contact_content_text[8]}/>
         </form>
         </div>
     }
@@ -34,13 +34,12 @@ fn contact_form() -> Html {
 
 #[function_component(ContactWaysContainer)]
 fn contact_ways_container() -> Html {
-    let contact_ways_list = get_contact_ways_list();
     html! {
-    contact_ways_list.iter().map(|way|{
+    get_contact_ways_list().iter().map(|way|{
         html!{
             <ContactWay
                 image = {way.image.clone()}
-                title = {way.title.clone()}
+                text = {way.text.clone()}
                 contact_information = {way.contact_information.clone()}
             />
             }
@@ -48,34 +47,36 @@ fn contact_ways_container() -> Html {
     }
 }
 
+fn get_contact_ways_list() -> [ContactWayProps; 2] {
+    let store = use_store::<PersistentStore<AppProperties>>();
+    let contact_content_text = get_contact_context_text(store);
+    [
+        ContactWayProps {
+            image: String::from("img url"),
+            text: contact_content_text[1].to_owned(),
+            contact_information: String::from("nojipiz@gmail.com"),
+        },
+        ContactWayProps {
+            image: String::from("img url"),
+            text: contact_content_text[2].to_owned(),
+            contact_information: String::from("320201029"),
+        },
+    ]
+}
+
 #[function_component(ContactWay)]
 fn contact_way(props: &ContactWayProps) -> Html {
     html!(
         <div class="contactWayContainer">
-            <h1> {&props.title} </h1>
             <p> {&props.contact_information} </p>
+            <p> {&props.text} </p>
         </div>
     )
-}
-
-fn get_contact_ways_list() -> [ContactWayProps; 2] {
-    [
-        ContactWayProps {
-            image: String::from("img url"),
-            title: String::from("Telefono"),
-            contact_information: String::from("320201029"),
-        },
-        ContactWayProps {
-            image: String::from("img url"),
-            title: String::from("Email"),
-            contact_information: String::from("davidor2001"),
-        },
-    ]
 }
 
 #[derive(Properties, PartialEq)]
 struct ContactWayProps {
     image: String,
-    title: String,
+    text: String,
     contact_information: String,
 }

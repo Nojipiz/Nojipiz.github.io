@@ -1,6 +1,6 @@
 use crate::languages::languages::*;
 use yew::prelude::*;
-use yewdux::prelude::BasicStore;
+use yewdux::prelude::PersistentStore;
 use yewdux_functional::use_store;
 
 use crate::app::AppProperties;
@@ -25,7 +25,7 @@ fn donut_animation() -> Html {
 
 #[function_component(PresentationTitle)]
 fn presentation_title() -> Html {
-    let store = use_store::<BasicStore<AppProperties>>();
+    let store = use_store::<PersistentStore<AppProperties>>();
     let presentation_text = get_home_content_text(store);
     html! {
         <p>
