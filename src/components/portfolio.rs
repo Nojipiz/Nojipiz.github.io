@@ -12,7 +12,6 @@ pub fn portfolio() -> Html {
         <section id="portfolio" class="portfolioSection">
         <h2 class="rigthTitle"> {content_text[0]} </h2>
         <PortfolioElement/>
-        <h2 class="leftTitle"> {content_text[0]} </h2>
         </section>
     }
 }

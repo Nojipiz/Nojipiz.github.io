@@ -14,6 +14,7 @@ pub fn about() -> Html {
         <WhoIAm content={content_text}/>
         <MySkills content={content_text}/>
         <MyWork content={content_text}/>
+        <ToolBox content={content_text}/>
         </section>
     }
 }
@@ -46,6 +47,15 @@ fn my_work(props: &AboutProps) -> Html {
         <>
             <h1>{props.content[3]}</h1>
             <p>{props.content[4]}</p>
+        </>
+    }
+}
+
+#[function_component(ToolBox)]
+fn tool_box(props: &AboutProps) -> Html {
+    html! {
+        <>
+            <h1>{props.content[5]}</h1>
         </>
     }
 }
