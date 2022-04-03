@@ -1,9 +1,7 @@
 use serde::{de::DeserializeOwned, Deserialize, Serialize};
-use wasm_bindgen::JsValue;
-use web_sys::console;
 use yew::prelude::*;
 use yew_hooks::{use_async, use_async_with_options, UseAsyncOptions};
-use yewdux::prelude::{BasicStore, PersistentStore};
+use yewdux::prelude::PersistentStore;
 use yewdux_functional::use_store;
 
 use crate::{app::AppProperties, languages::languages::get_portfolio_content_text};
@@ -22,16 +20,10 @@ pub fn portfolio() -> Html {
 
 #[function_component(PortfolioElement)]
 fn get_portfolio_element() -> Html {
-    let repo = use_state(|| "jetli/yew-hooks".to_string());
-    // Demo #1, manually call `run` to load data.
-    let state = {
-        let repo = repo.clone();
-        use_async(async move { fetch_repo((*repo).clone()).await })
-    };
+    let state = { use_async(async move { fetch_repo().await }) };
     let onclick = {
         let state = state.clone();
         Callback::from(move |_| {
-            // You can manually trigger to run in callback or use_effect.
             state.run();
         })
     };
@@ -40,29 +32,20 @@ fn get_portfolio_element() -> Html {
         <button onclick={onclick}> {"Hi mom"}</button>
         <p>{"element"}</p>
         <p>{match &state.data{
-            Some(data) => &data.name,
+            Some(data) => &data.elements,
             None => "xd",
         }}</p>
     </>
     }
 }
 
-async fn get_information() {
-    match reqwest::get("https://dog.ceo/api/breeds/image/random").await {
-        Ok(response) => {
-            let body = response.text().await.unwrap();
-        }
-        Err(e) => {
-            console::log_1(&JsValue::from_str(&format!("{:?}", e)));
-        }
-    }
+async fn fetch_repo() -> Result<Projects, Error> {
+    fetch::<Projects>(String::from(
+        "https://raw.githubusercontent.com/Nojipiz/Nojipiz/main/Projects.json",
+    ))
+    .await
 }
 
-async fn fetch_repo(repo: String) -> Result<Repo, Error> {
-    fetch::<Repo>(format!("https://api.github.com/repos/{}", repo)).await
-}
-
-/// You can use reqwest or other crates to fetch your api.
 async fn fetch<T>(url: String) -> Result<T, Error>
 where
     T: DeserializeOwned,
@@ -80,19 +63,9 @@ where
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
-struct User {
-    id: i32,
-    login: String,
-    avatar_url: String,
-}
-
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
-struct Repo {
-    id: i32,
-    name: String,
-    full_name: String,
-    description: String,
-    owner: User,
+struct Projects {
+    data: String,
+    elements: String,
 }
 
 // You can use thiserror to define your errors.
@@ -100,5 +73,4 @@ struct Repo {
 enum Error {
     RequestError,
     DeserializeError,
-    // etc.
 }
