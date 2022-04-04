@@ -1,7 +1,7 @@
 use yewdux::prelude::PersistentStore;
 use yewdux_functional::StoreRef;
 
-use crate::app::AppProperties;
+use crate::{app::AppProperties, components::portfolio::Project};
 
 pub fn get_header_section_names(
     store: StoreRef<PersistentStore<AppProperties>>,
@@ -41,6 +41,20 @@ pub fn get_portfolio_content_text(
     match language.as_str() {
         "es" => ["Portafolio"],
         _ => ["Portfolio"],
+    }
+}
+
+pub fn get_portfolio_project_content_text(
+    project: &'static Project,
+    store: StoreRef<PersistentStore<AppProperties>>,
+) -> [&'static str; 3] {
+    let language: String = store
+        .state()
+        .map(|state| state.language.clone())
+        .unwrap_or_default();
+    match language.as_str() {
+        "es" => [&project.title, &project.description, "sd"],
+        _ => [&project.title, &project.description, "sd"],
     }
 }
 

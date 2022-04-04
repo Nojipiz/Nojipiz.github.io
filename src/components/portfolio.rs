@@ -1,10 +1,13 @@
 use serde::{de::DeserializeOwned, Deserialize, Serialize};
 use yew::prelude::*;
-use yew_hooks::{use_async, use_async_with_options, UseAsyncOptions};
+use yew_hooks::{use_async_with_options, UseAsyncOptions};
 use yewdux::prelude::PersistentStore;
 use yewdux_functional::use_store;
 
-use crate::{app::AppProperties, languages::languages::get_portfolio_content_text};
+use crate::{
+    app::AppProperties,
+    languages::languages::{get_portfolio_content_text, get_portfolio_project_content_text},
+};
 
 #[function_component(Portfolio)]
 pub fn portfolio() -> Html {
@@ -13,29 +16,42 @@ pub fn portfolio() -> Html {
     html! {
         <section id="portfolio" class="portfolioSection">
         <h2 class="rigthTitle"> {content_text[0]} </h2>
-        <PortfolioElement/>
+        <PortfolioElements/>
         </section>
     }
 }
 
-#[function_component(PortfolioElement)]
-fn get_portfolio_element() -> Html {
-    let state = { use_async(async move { fetch_repo().await }) };
-    let onclick = {
-        let state = state.clone();
-        Callback::from(move |_| {
-            state.run();
-        })
+#[function_component(PortfolioElements)]
+fn portfolio_elements() -> Html {
+    let state = {
+        use_async_with_options(
+            async move { fetch_repo().await },
+            UseAsyncOptions::enable_auto(),
+        )
     };
     html! {
     <>
-        <button onclick={onclick}> {"Hi mom"}</button>
-        <p>{"element"}</p>
-        <p>{match &state.data{
-            Some(data) => &data.elements,
-            None => "xd",
-        }}</p>
+        {match &state.data{
+            Some(data) => data.data.iter().map(|element| {
+                html!{
+                    <ProjectComponent project={element.clone()}/>
+                }
+            }).collect::<Html>(),
+            None => html!{<p>{"F"}</p>},
+        }}
     </>
+    }
+}
+
+#[function_component(ProjectComponent)]
+fn project_component(props: &ProjectProps) -> Html {
+    let store = use_store::<PersistentStore<AppProperties>>();
+    //let project_content_text = get_portfolio_project_content_text(props.project, store);
+    html! {
+        <>
+            <h1>{props.project.title.clone()}</h1>
+            <p>{props.project.description.clone()}</p>
+        </>
     }
 }
 
@@ -64,11 +80,20 @@ where
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
 struct Projects {
-    data: String,
-    elements: String,
+    data: Vec<Project>,
 }
 
-// You can use thiserror to define your errors.
+#[derive(Clone, Properties, PartialEq)]
+struct ProjectProps {
+    project: Project,
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
+pub struct Project {
+    pub title: String,
+    pub description: String,
+}
+
 #[derive(Clone, Debug, PartialEq)]
 enum Error {
     RequestError,
