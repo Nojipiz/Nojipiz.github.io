@@ -1,4 +1,4 @@
-use serde::{de::DeserializeOwned, Deserialize, Serialize};
+use serde::{Deserialize, Serialize};
 use yew::prelude::*;
 use yew_hooks::{use_async_with_options, UseAsyncOptions};
 use yewdux::prelude::PersistentStore;
@@ -6,7 +6,8 @@ use yewdux_functional::use_store;
 
 use crate::{
     app::AppProperties,
-    languages::languages::{get_portfolio_content_text, get_portfolio_project_content_text},
+    fetch::fetch::{fetch_from_url, Error},
+    languages::languages::{get_portfolio_content_text, get_project_fields},
 };
 
 #[function_component(Portfolio)]
@@ -15,8 +16,8 @@ pub fn portfolio() -> Html {
     let content_text = get_portfolio_content_text(store);
     html! {
         <section id="portfolio" class="portfolioSection">
-        <h2 class="rigthTitle"> {content_text[0]} </h2>
-        <PortfolioElements/>
+            <h2 class="rigthTitle"> {content_text[0]} </h2>
+            <PortfolioElements/>
         </section>
     }
 }
@@ -25,57 +26,48 @@ pub fn portfolio() -> Html {
 fn portfolio_elements() -> Html {
     let state = {
         use_async_with_options(
-            async move { fetch_repo().await },
+            async move { fetch_projects_repo().await },
             UseAsyncOptions::enable_auto(),
         )
     };
     html! {
-    <>
-        {match &state.data{
-            Some(data) => data.data.iter().map(|element| {
-                html!{
-                    <ProjectComponent project={element.clone()}/>
-                }
-            }).collect::<Html>(),
-            None => html!{<p>{"F"}</p>},
-        }}
-    </>
+    <>{if state.loading{
+        html!{
+            <>{"Loading..."}</>
+        }
+    }
+    else {
+        match &state.data{
+        Some(data) => data.data.iter().map(|element| {
+            html!{
+                <ProjectComponent project={element.clone()}/>
+            }
+        }).collect::<Html>(),
+        None => html!{<p>{"F"}</p>}
+        }
+    }
+    }</>
     }
 }
 
 #[function_component(ProjectComponent)]
 fn project_component(props: &ProjectProps) -> Html {
     let store = use_store::<PersistentStore<AppProperties>>();
-    //let project_content_text = get_portfolio_project_content_text(props.project, store);
+    let project = get_project_fields(props.project.clone(), store);
     html! {
         <>
-            <h1>{props.project.title.clone()}</h1>
-            <p>{props.project.description.clone()}</p>
+            <h1>{project[0].clone()}</h1>
+            <p>{project[1].clone()}</p>
+            <img src={project[2].clone()}/>
         </>
     }
 }
 
-async fn fetch_repo() -> Result<Projects, Error> {
-    fetch::<Projects>(String::from(
+async fn fetch_projects_repo() -> Result<Projects, Error> {
+    fetch_from_url::<Projects>(String::from(
         "https://raw.githubusercontent.com/Nojipiz/Nojipiz/main/Projects.json",
     ))
     .await
-}
-
-async fn fetch<T>(url: String) -> Result<T, Error>
-where
-    T: DeserializeOwned,
-{
-    let response = reqwest::get(url).await;
-    if let Ok(data) = response {
-        if let Ok(repo) = data.json::<T>().await {
-            Ok(repo)
-        } else {
-            Err(Error::DeserializeError)
-        }
-    } else {
-        Err(Error::RequestError)
-    }
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
@@ -91,11 +83,8 @@ struct ProjectProps {
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
 pub struct Project {
     pub title: String,
+    pub title_es: String,
     pub description: String,
-}
-
-#[derive(Clone, Debug, PartialEq)]
-enum Error {
-    RequestError,
-    DeserializeError,
+    pub description_es: String,
+    pub img: String,
 }
