@@ -1,4 +1,5 @@
 use crate::languages::languages::*;
+use web_sys::Window;
 use yew::prelude::*;
 use yewdux::prelude::PersistentStore;
 use yewdux_functional::use_store;
@@ -18,8 +19,8 @@ pub fn home() -> Html {
 #[function_component(DonutAnimation)]
 fn donut_animation() -> Html {
     html! {
-        <p>{"Here will be the Donut code"}</p>
         //Todo: Generate donut code in rust
+        <Donut/>
     }
 }
 
@@ -34,4 +35,12 @@ fn presentation_title() -> Html {
             {presentation_text[2]}
         </p>
     }
+}
+
+#[function_component(Donut)]
+fn donnut_code() -> Html {
+    let win: Window = web_sys::window().unwrap();
+    let res = win.set_interval_with_str_and_timeout_and_unused_0("console.log('Hello')", 1000);
+    res.unwrap();
+    html! {}
 }
