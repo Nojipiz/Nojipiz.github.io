@@ -1,6 +1,6 @@
 use crate::languages::languages::*;
-use wasm_bindgen::JsCast;
-use web_sys::window;
+use wasm_bindgen::{prelude::Closure, JsCast};
+use web_sys::{window, HtmlElement};
 use yew::prelude::*;
 use yewdux::prelude::PersistentStore;
 use yewdux_functional::use_store;
@@ -54,28 +54,38 @@ fn donnut_code() -> Html {
         .unwrap()
         .dyn_into::<web_sys::CanvasRenderingContext2d>()
         .unwrap();
+
     let mut counter = 0;
-    let mut interval = win.set_interval_with_callback_and_timeout_and_arguments_0(
-        move || {
-            counter += 1;
-            ctx.clear_rect(0.0, 0.0, canvas.width(), canvas.height());
-            ctx.begin_path();
-            ctx.arc(
-                canvas.width() / 2.0,
-                canvas.height() / 2.0,
-                canvas.width() / 2.0,
-                0.0,
-                2.0 * std::f32::consts::PI,
-            );
-            ctx.stroke();
-            ctx.fill_style = "white".into();
-            ctx.fill_text(
-                &format!("{}", counter),
-                canvas.width() / 2.0,
-                canvas.height() / 2.0,
-            );
-        },
-        1000,
-    );
+
+    let f = Closure::wrap(Box::new(move || {
+        counter += 1;
+        ctx.clear_rect(0.0, 0.0, canvas.width() as f64, canvas.height() as f64);
+        ctx.begin_path();
+        ctx.arc(
+            (canvas.width() / 2) as f64,
+            (canvas.height() / 2) as f64,
+            (canvas.width() / 2) as f64,
+            0.0,
+            2.0 * std::f32::consts::PI as f64,
+        );
+        ctx.stroke();
+        ctx.fill_text(
+            &format!("{}", counter),
+            (canvas.width() / 2) as f64,
+            (canvas.height() / 2) as f64,
+        );
+    }) as Box<dyn FnMut()>);
+
+    web_sys::window()
+        .unwrap()
+        .document()
+        .unwrap()
+        .get_element_by_id("uniqueElement")
+        .unwrap()
+        .dyn_ref::<HtmlElement>()
+        .unwrap()
+        .set_onclick(Some(f.as_ref().unchecked_ref()));
+
+    f.forget();
     html! {}
 }
