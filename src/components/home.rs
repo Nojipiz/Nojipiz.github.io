@@ -1,4 +1,5 @@
 use crate::languages::languages::*;
+use serde::de::IntoDeserializer;
 use wasm_bindgen::{prelude::Closure, JsCast};
 use web_sys::{window, HtmlElement};
 use yew::prelude::*;
@@ -85,6 +86,10 @@ fn donnut_code() -> Html {
         .dyn_ref::<HtmlElement>()
         .unwrap()
         .set_onclick(Some(f.as_ref().unchecked_ref()));
+
+    web_sys::window()
+        .unwrap()
+        .set_interval_with_callback(Some(f.as_ref().unchecked_ref()).unwrap());
 
     f.forget();
     html! {}
