@@ -17,9 +17,10 @@ crate-type = ["cdylib", "rlib"]
 [dependencies]
 log = "0.4"
 yew = "0.19.3"
-yewdux = "0.7.0"
 yew-router = "0.16.0"
+yewdux = "0.7.0"
 yewdux-functional = "0.1.0"
+yew-hooks = "0.1.50"
 serde = "1.0.136"
 wasm-bindgen = "0.2"
 wasm-bindgen-futures = "0.4"
@@ -27,7 +28,6 @@ wasm-logger = "0.2.0"
 web-sys = "0.3.56"
 wee_alloc = "0.4.5"
 reqwest = { version = "0.11.10", features = ["json"] }
-yew-hooks = "0.1.50"
 
 [dev-dependencies]
 wasm-bindgen-test = "0.3.14"
@@ -35,4 +35,11 @@ gloo-utils = "0.1.0"
 
 [dev-dependencies.web-sys]
 version = "0.3"
-features = ["Window", "Document", "Element", "HtmlCollection"]
+features = [
+  "Window",
+  "Document",
+  "Element",
+  "HtmlCollection",
+  "HtmlCanvasElement",
+  "CanvasRenderingContext2d",
+]
