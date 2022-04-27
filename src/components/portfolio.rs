@@ -58,7 +58,7 @@ fn project_component(props: &ProjectProps) -> Html {
         <>
             <h1>{project[0].clone()}</h1>
             <p>{project[1].clone()}</p>
-            <img src={project[2].clone()}/>
+            //<img src={project[2].clone()}/>  Disabled for test
         </>
     }
 }

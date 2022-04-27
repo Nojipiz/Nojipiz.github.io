@@ -27,7 +27,7 @@ fn who_i_am_component(props: &AboutProps) -> Html {
                 <h1>{props.content[0]}</h1>
                 <p>{props.content[1]}</p>
             </div>
-            <img src="https://avatarfiles.alphacoders.com/229/229959.png"/>
+            //<img src="https://avatarfiles.alphacoders.com/229/229959.png"/>  Disabled for test
         </>
     }
 }

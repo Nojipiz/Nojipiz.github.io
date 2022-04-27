@@ -1,12 +1,12 @@
 [package]
-authors = ["You <you@example.com>"]
-categories = ["wasm"]
-description = "My awesome Yew app."
+authors = ["Orlando Vargas nojipiz@hotmail.com"]
+categories = ["WASM"]
+description = "portfolio"
 edition = "2018"
 license = "Apache-2.0/MIT"
 name = "yew-app"
 readme = "./README.md"
-repository = "https://github.com/jetli/create-yew-app.git"
+repository = "https://github.com/Nojipiz/Nojipiz.github.io"
 version = "0.1.0"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -26,6 +26,7 @@ wasm-bindgen = "0.2"
 wasm-bindgen-futures = "0.4"
 wasm-logger = "0.2.0"
 web-sys = "0.3.56"
+js-sys = "0.3.57"
 wee_alloc = "0.4.5"
 reqwest = { version = "0.11.10", features = ["json"] }
 
@@ -38,8 +39,9 @@ version = "0.3"
 features = [
   "Window",
   "Document",
+  "HtmlCanvasElement",
   "Element",
   "HtmlCollection",
-  "HtmlCanvasElement",
   "CanvasRenderingContext2d",
 ]
+
