@@ -8,5 +8,3 @@ run();
 
 // Animations //
 startDonutAnimation();
-
-
