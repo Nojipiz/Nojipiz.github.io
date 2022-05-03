@@ -10,16 +10,16 @@ pub fn home() -> Html {
     html! {
         <section id="home" class="homeSection">
             <PresentationTitle />
-            <DonutAnimation />
+            <MoonAnimation />
         </section>
     }
 }
 
-#[function_component(DonutAnimation)]
-fn donut_animation() -> Html {
+#[function_component(MoonAnimation)]
+fn moon_animation() -> Html {
     html! {
         <>
-            <canvas id="donutCanva"> </canvas>
+            <canvas id="moonCanvas"> </canvas>
         </>
     }
 }
