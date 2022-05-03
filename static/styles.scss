@@ -1,1 +1,7 @@
-//Todo:{make the styles for the page, with a simulation of css modules but in scss} 
+@import '_normalize' ,
+'../src/components/about/style', 
+'../src/components/contact/style',
+'../src/components/footer/style', 
+'../src/components/header/style', 
+'../src/components/home/style', 
+'../src/components/portfolio/style'; 
