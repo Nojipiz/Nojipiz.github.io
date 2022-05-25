@@ -32,12 +32,19 @@ fn get_properties_buttons() -> Html {
         .state()
         .map(|state| state.color_scheme.clone())
         .unwrap_or_default();
+    {
+        let current_scheme = color_scheme.clone();
+        use_effect(move || {
+            update_body_class(&&current_scheme);
+            || ()
+        });
+    }
     let change_color_scheme = store.dispatch().reduce_callback(|state| {
         state.color_scheme = match state.color_scheme.as_str() {
             "light" => "dark",
             _ => "light",
         }
-        .to_owned()
+        .to_owned();
     });
     html! {
         <div>
@@ -65,4 +72,18 @@ fn nav_sections() -> Html {
         }
         </nav>
     }
+}
+
+fn update_body_class(color_scheme: &str) {
+    let window = web_sys::window().expect("I can't find your window :(");
+    let document = window
+        .document()
+        .expect("There isn't a document in your window :(");
+    let body = document
+        .body()
+        .expect("Sorry, I can't find the page body :(");
+    body.set_class_name(match color_scheme {
+        "dark" => "theme_dark",
+        _ => "",
+    })
 }

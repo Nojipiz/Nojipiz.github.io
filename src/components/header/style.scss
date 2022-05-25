@@ -1,5 +1,7 @@
-@import '../../../static/_base.scss';
-
 .main_header{
-  background-color: transparent;
+  width: 100%;
+  background-color: $background-color;
+  height: 8vh;
+  display: flex;
+  flex-direction: row;
 }
