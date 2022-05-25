@@ -8,8 +8,10 @@ use crate::{app::AppProperties, languages::languages::get_header_section_names};
 pub fn nav() -> Html {
     html! {
         <header class={"main_header"}>
-            <NavigationSections />
-            <PropertiesButtons/>
+            <div class={"header_wrapper"}>
+                <NavigationSections />
+                <PropertiesButtons/>
+            </div>
        </header>
     }
 }
@@ -60,11 +62,11 @@ fn nav_sections() -> Html {
     let section_ids: [&str; 4] = ["/#home", "/#portfolio", "/#about", "/#contact"];
     let section_names: [&str; 4] = get_header_section_names(store);
     html! {
-        <nav>
+        <nav class={"navigation_section"}>
         {
             section_names.iter().enumerate().map(|(index, name)| {
             html!{
-                <a class="" href={section_ids[index]}>
+                <a href={section_ids[index]}>
                 {name}
                 </a>
                 }

@@ -1,7 +1,17 @@
+@import '../../styles/_base';
+
 .main_header{
   width: 100%;
-  background-color: $background-color;
   height: 8vh;
+  position: fixed;
+  .header_wrapper{
+    @extend %Center;
+    justify-content: space-between;
+  }
+}
+
+.navigation_section{
+  width: 60%;
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
 }
