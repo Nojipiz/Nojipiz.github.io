@@ -1,0 +1,8 @@
+:root {
+    --background-color: black;
+}
+.theme_dark {
+    --background-color: white;
+}
+
+$background-color: var(--background-color);
