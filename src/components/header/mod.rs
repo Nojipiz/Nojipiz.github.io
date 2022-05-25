@@ -7,7 +7,7 @@ use crate::{app::AppProperties, languages::languages::get_header_section_names};
 #[function_component(Header)]
 pub fn nav() -> Html {
     html! {
-        <header>
+        <header class={"main_header"}>
             <NavigationSections />
             <PropertiesButtons/>
        </header>

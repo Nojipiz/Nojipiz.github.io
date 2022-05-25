@@ -1,21 +1,23 @@
 import * as BABYLON from 'babylonjs';
-import { AbstractMesh} from 'babylonjs';
+import { AbstractMesh } from 'babylonjs';
 
 
 export default async function startAnimation() {
   const moonCanva: HTMLCanvasElement = document.getElementById('moonCanvas') as HTMLCanvasElement;
   const engine = new BABYLON.Engine(moonCanva, true);
   const cameraPosition: BABYLON.Vector3 = new BABYLON.Vector3(0, 0, -300);
+  const sunPosition: BABYLON.Vector3 = new BABYLON.Vector3(0, 0, 1);
 
   BABYLON.SceneLoader.Load('https://raw.githubusercontent.com/Nojipiz/Nojipiz.github.io/dev/src/animations/', 'moon.babylon', engine, (mainScene) => {
     mainScene.executeWhenReady(() => {
       const moonMeshes: AbstractMesh[] = mainScene.meshes;
       clearSceneBackground(mainScene);
       setCameraInScene(mainScene, moonMeshes[0].position);
+      setLightInScene(mainScene);
       setRotationAnimationForMoon(mainScene, moonMeshes);
-      engine.runRenderLoop(() => {mainScene.render();});
+      engine.runRenderLoop(() => { mainScene.render(); });
     });
-  }, (): void => {})
+  }, (): void => { })
 
 
   const setCameraInScene: Function = (scene: BABYLON.Scene, moonPosition: BABYLON.Vector3): void => {
@@ -23,6 +25,10 @@ export default async function startAnimation() {
     scene.activeCamera.attachControl(moonCanva);
     scene.activeCamera.position = cameraPosition;
     scene.activeCamera.inputs.removeByType('ArcRotateCameraMouseWheelInput');
+  }
+
+  const setLightInScene: Function = (scene: BABYLON.Scene): BABYLON.DirectionalLight => {
+    return new BABYLON.DirectionalLight("SunLight", sunPosition, scene);
   }
 
   const clearSceneBackground: Function = (scene: BABYLON.Scene): void => {
