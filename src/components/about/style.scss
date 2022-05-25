@@ -1,2 +1,5 @@
-.aboutSection{
+@import '../../styles/_base';
+
+.about_section{
+  @extend %Section;
 }

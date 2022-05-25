@@ -49,7 +49,7 @@ fn get_properties_buttons() -> Html {
         .to_owned();
     });
     html! {
-        <div>
+        <div class={"options_wrapper"}>
             <button onclick={change_language}>{language}</button>
             <button onclick={change_color_scheme}>{color_scheme}</button>
         </div>

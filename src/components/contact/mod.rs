@@ -9,7 +9,7 @@ pub fn contact() -> Html {
     let store = use_store::<PersistentStore<AppProperties>>();
     let text_content = get_contact_context_text(store);
     html! {
-        <section id="contact" class="contactSection">
+        <section id="contact" class="contact_section">
             <ContactWaysContainer content={text_content}/>
             <ContactForm content={text_content}/>
         </section>

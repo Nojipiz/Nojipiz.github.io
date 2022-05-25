@@ -8,7 +8,7 @@ use crate::app::AppProperties;
 #[function_component(Home)]
 pub fn home() -> Html {
     html! {
-        <section id="home" class="homeSection">
+        <section id="home" class="home_section">
             <PresentationTitle />
             <MoonAnimation />
         </section>

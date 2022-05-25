@@ -12,6 +12,11 @@
 $background-color: var(--background-color);
 
 /*
+  Size variables
+*/
+$side-margin: 3%;
+
+/*
   Extends
 */
 
@@ -22,8 +27,10 @@ $background-color: var(--background-color);
 }
 
 %Section{
-  $margin-sides: 3rem;
+  margin-left: $side-margin;
+  margin-right: $side-margin;
+}
 
-  margin-left: $margin-sides;
-  margin-right: $margin-sides;
+%ShadowBox{
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }

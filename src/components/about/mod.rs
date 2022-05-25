@@ -9,7 +9,7 @@ pub fn about() -> Html {
     let store = use_store::<PersistentStore<AppProperties>>();
     let content_text = get_about_context_text(store);
     html! {
-        <section id="about" class="aboutSection">
+        <section id="about" class="about_section">
         {"About"}
         <WhoIAm content={content_text}/>
         <MySkills content={content_text}/>

@@ -1,0 +1,19 @@
+@import '../../styles/_base';
+
+.portfolio_section{
+  @extend %Section;
+}
+
+.rigth_title{
+  font-size: 15vw;
+  text-align: right;
+}
+
+.project_container{
+  @extend %Center;
+  @extend %ShadowBox;
+  & img{
+   width: 10rem; 
+  }
+  margin-top: 2rem; // Todo: Better gap sys
+}

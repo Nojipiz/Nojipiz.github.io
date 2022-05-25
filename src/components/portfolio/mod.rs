@@ -15,8 +15,8 @@ pub fn portfolio() -> Html {
     let store = use_store::<PersistentStore<AppProperties>>();
     let content_text = get_portfolio_content_text(store);
     html! {
-        <section id="portfolio" class="portfolioSection">
-            <h2 class="rigthTitle"> {content_text[0]} </h2>
+        <section id="portfolio" class="portfolio_section">
+            <h2 class="rigth_title"> {content_text[0]} </h2>
             <PortfolioElements/>
         </section>
     }
@@ -55,11 +55,11 @@ fn project_component(props: &ProjectProps) -> Html {
     let store = use_store::<PersistentStore<AppProperties>>();
     let project = get_project_fields(props.project.clone(), store);
     html! {
-        <>
+        <div class={"project_container"}>
+            <img src={project[2].clone()}/>
             <h1>{project[0].clone()}</h1>
             <p>{project[1].clone()}</p>
-            //<img src={project[2].clone()}/>  Disabled for test
-        </>
+        </div>
     }
 }
 

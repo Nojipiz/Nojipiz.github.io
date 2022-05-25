@@ -1,0 +1,11 @@
+@import '../../styles/_base';
+
+.home_section{
+  @extend %Section;
+  @extend %Center;
+  height: 95vh;  
+}
+
+#moonCanvas{
+  outline: none;
+}

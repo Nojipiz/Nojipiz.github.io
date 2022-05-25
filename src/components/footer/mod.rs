@@ -9,7 +9,7 @@ pub fn footer() -> Html {
     let store = use_store::<PersistentStore<AppProperties>>();
     let content_text = get_footer_context_text(store);
     html!(
-         <footer>
+         <footer class={"main_footer"}>
             <p> {content_text[0]} </p>
             <p> {content_text[1]} </p>
             <p> {content_text[2]} </p>

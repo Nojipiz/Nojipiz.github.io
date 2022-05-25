@@ -1,12 +1,18 @@
 @import '../../styles/_base';
 
 .main_header{
-  width: 100%;
-  height: 8vh;
+  width: 100vw;
+  height: 6vh;
   position: fixed;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
   .header_wrapper{
-    @extend %Center;
+    width: 100%;
+    display: flex;
     justify-content: space-between;
+    margin-left: $side-margin;
+    margin-right: $side-margin;
   }
 }
 
@@ -14,4 +20,8 @@
   width: 60%;
   display: flex;
   justify-content: space-between;
+}
+
+.options_wrapper{
+    @extend %Center;
 }
