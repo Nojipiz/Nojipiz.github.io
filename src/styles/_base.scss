@@ -1,8 +1,29 @@
+/*
+  Theme variables: This variables change the look and feel of the website just changing the class of the body component!
+  There are a mix of pure css variables and sass variables.
+*/
+
 :root {
     --background-color: black;
 }
 .theme_dark {
     --background-color: white;
 }
-
 $background-color: var(--background-color);
+
+/*
+  Extends
+*/
+
+%Center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%Section{
+  $margin-sides: 3rem;
+
+  margin-left: $margin-sides;
+  margin-right: $margin-sides;
+}
