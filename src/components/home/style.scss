@@ -6,6 +6,9 @@
   height: 95vh;  
 }
 
+//Todo: Add responsive moon size
 #moonCanvas{
   outline: none;
+  width: $size-moon;
+  height: $size-moon;
 }
