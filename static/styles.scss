@@ -1,4 +1,5 @@
-@import '../src/styles/_normalize' ,
+@import '../src/styles/include_media',
+'../src/styles/_normalize' ,
 '../src/styles/_base',
 '../src/components/about/style', 
 '../src/components/contact/style',
