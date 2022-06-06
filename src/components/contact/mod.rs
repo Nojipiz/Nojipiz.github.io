@@ -19,23 +19,24 @@ pub fn contact() -> Html {
 #[function_component(ContactForm)]
 fn contact_form(props: &ContactProps) -> Html {
     html! {
-        <div>
+        <>
         <h1>{props.content[3]}</h1>
-        <form>
+        <form class={"contact_form"}>
             <input type="text" id="formName" name="name" placeholder={props.content[4]}/>
             <input type="email" id="formEmail" name="email" placeholder={props.content[5]}/>
             <input type="text" id="formSubject" name="subject" placeholder={props.content[6]}/>
             <input type="text" id="formMessage" name="message" placeholder={props.content[7]}/>
             <input type="submit" value={props.content[8]}/>
         </form>
-        </div>
+        </>
     }
 }
 
 #[function_component(ContactWaysContainer)]
 fn contact_ways_container(props: &ContactProps) -> Html {
     html! {
-    get_contact_ways_list(props).iter().map(|way|{
+        <div class={"contact_ways_container"}>
+        {get_contact_ways_list(props).iter().map(|way|{
         html!{
             <ContactWay
                 image = {way.image.clone()}
@@ -43,7 +44,8 @@ fn contact_ways_container(props: &ContactProps) -> Html {
                 contact_information = {way.contact_information.clone()}
             />
             }
-        }).collect::<Html>()
+        }).collect::<Html>()}
+        </div>
     }
 }
 
@@ -65,7 +67,7 @@ fn get_contact_ways_list(props: &ContactProps) -> [ContactWayProps; 2] {
 #[function_component(ContactWay)]
 fn contact_way(props: &ContactWayProps) -> Html {
     html!(
-        <div class="contactWayContainer">
+        <div class="contact_way">
             <p> {&props.contact_information} </p>
             <p> {&props.text} </p>
         </div>

@@ -5,11 +5,14 @@
 
 :root {
     --background-color: black;
+    --background-shadow-color: #202020;
 }
 .theme_dark {
     --background-color: white;
+    --background-shadow-color: #202020;
 }
 $background-color: var(--background-color);
+$background-shadow-color: var(--background-shadow-color);
 
 /*
   Size variables
@@ -32,4 +35,13 @@ $side-margin: 3%;
 
 %ShadowBox{
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+%BigTitle{
+  font-size: 15vw;
+}
+
+%BackgroundTitle{
+  @extend %BigTitle;
+  color: var(--background-shadow-color);
 }

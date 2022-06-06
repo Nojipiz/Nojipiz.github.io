@@ -5,7 +5,7 @@
 }
 
 .rigth_title{
-  font-size: 15vw;
+  @extend %BigTitle;
   text-align: right;
 }
 

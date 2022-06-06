@@ -23,9 +23,10 @@
 ////
 
 $breakpoints: (
-  'phone': 320px,
+  'mini': 320px,
+  'phone': 425px,
   'tablet': 768px,
-  'desktop': 1024px
+  'laptop': 1024px
 ) !default;
 
 

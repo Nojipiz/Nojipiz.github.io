@@ -60,7 +60,7 @@ pub fn get_project_fields(
 
 pub fn get_about_context_text(
     store: StoreRef<PersistentStore<AppProperties>>,
-) -> [&'static str; 6] {
+) -> [&'static str; 7] {
     let language: String = store
         .state()
         .map(|state| state.language.clone())
@@ -80,6 +80,7 @@ pub fn get_about_context_text(
             el valor de mi trabajo es por proyecto, de esta forma me puedo 
             concentrar en el producto sin tener que contar las horas que paso en el :)",
             "Herramientas",
+            "Sobre",
         ],
         _ => [
             "Who i am",
@@ -93,6 +94,7 @@ pub fn get_about_context_text(
             my main objective is to solve your problem, the value of my work is per project, 
             so I can focus on finish it without count the hours :)",
             "Toolbox",
+            "About",
         ],
     }
 }

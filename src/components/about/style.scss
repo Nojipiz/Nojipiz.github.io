@@ -3,3 +3,18 @@
 .about_section{
   @extend %Section;
 }
+
+.left_title{
+  @extend %BigTitle;
+  text-align: left;
+}
+
+.information_container{
+  display: flex;
+  flex-direction: row;
+  img{
+    width: 10em;
+    height: 10em;
+  }
+}
+

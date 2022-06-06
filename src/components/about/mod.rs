@@ -10,7 +10,7 @@ pub fn about() -> Html {
     let content_text = get_about_context_text(store);
     html! {
         <section id="about" class="about_section">
-        {"About"}
+        <h2 class="left_title"> {content_text[6]} </h2>
         <WhoIAm content={content_text}/>
         <MySkills content={content_text}/>
         <MyWork content={content_text}/>
@@ -22,13 +22,13 @@ pub fn about() -> Html {
 #[function_component(WhoIAm)]
 fn who_i_am_component(props: &AboutProps) -> Html {
     html! {
-        <>
+        <div class={"information_container"}>
             <div>
                 <h1>{props.content[0]}</h1>
                 <p>{props.content[1]}</p>
             </div>
-            //<img src="https://avatarfiles.alphacoders.com/229/229959.png"/>  Disabled for test
-        </>
+            <img src="https://avatarfiles.alphacoders.com/229/229959.png"/>
+        </div>
     }
 }
 
@@ -36,7 +36,8 @@ fn who_i_am_component(props: &AboutProps) -> Html {
 fn my_skills(props: &AboutProps) -> Html {
     html! {
         <>
-        <h1>{props.content[2]}</h1>
+            <h1>{props.content[2]}</h1>
+            <p>{"Web / Mobile / Languages (TODO)"}</p>
         </>
     }
 }
@@ -44,10 +45,13 @@ fn my_skills(props: &AboutProps) -> Html {
 #[function_component(MyWork)]
 fn my_work(props: &AboutProps) -> Html {
     html! {
-        <>
-            <h1>{props.content[3]}</h1>
-            <p>{props.content[4]}</p>
-        </>
+        <div class={"information_container"}>
+            <img src="https://avatarfiles.alphacoders.com/229/229959.png"/>
+            <div>
+                <h1>{props.content[3]}</h1>
+                <p>{props.content[4]}</p>
+            </div>
+        </div>
     }
 }
 
@@ -56,11 +60,12 @@ fn tool_box(props: &AboutProps) -> Html {
     html! {
         <>
             <h1>{props.content[5]}</h1>
+            <p>{"Linux / Figma (TODO)"}</p>
         </>
     }
 }
 
 #[derive(Properties, PartialEq)]
 struct AboutProps {
-    content: [&'static str; 6],
+    content: [&'static str; 7],
 }

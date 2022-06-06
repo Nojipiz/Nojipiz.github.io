@@ -4,16 +4,17 @@
   @extend %Section;
   @extend %Center;
   height: 95vh;  
+  @include media('<phone'){
+    flex-direction: column;
+  }
 }
 
 #moonCanvas{
   $size-moon: 20vw;
-  $min-size: 10em;
+  $min-size: 14em;
   outline: none;
   width: $size-moon;
   height: $size-moon;
   min-width: $min-size;
   min-height: $min-size;
-  @include media("<=tablet"){
-  }
 }
