@@ -4,15 +4,17 @@
 */
 
 :root {
-    --background-color: black;
-    --background-shadow-color: #202020;
+  --background-color: black;
+  --background-shadow-color: #202020;
 }
 .theme_dark {
-    --background-color: white;
-    --background-shadow-color: #202020;
+  --background-color: white;
+  --background-shadow-color: #202020;
 }
+
 $background-color: var(--background-color);
 $background-shadow-color: var(--background-shadow-color);
+$accent-color: #ff4d5a;
 
 /*
   Size variables
@@ -22,26 +24,26 @@ $side-margin: 3%;
   Extends
 */
 
-%Center{
+%Center {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-%Section{
+%Section {
   margin-left: $side-margin;
   margin-right: $side-margin;
 }
 
-%ShadowBox{
+%ShadowBox {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-%BigTitle{
+%BigTitle {
   font-size: 15vw;
 }
 
-%BackgroundTitle{
+%BackgroundTitle {
   @extend %BigTitle;
   color: var(--background-shadow-color);
 }
