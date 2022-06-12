@@ -4,7 +4,6 @@ use yewdux::prelude::PersistentStore;
 use yewdux_functional::use_store;
 
 use crate::app::AppProperties;
-use crate::components::lines::Line;
 
 #[function_component(Home)]
 pub fn home() -> Html {
@@ -34,7 +33,10 @@ fn presentation_title() -> Html {
             {presentation_text[0]}<b>{presentation_text[1]} </b>
             <br/>
             {presentation_text[2]}
-            <Line/>
+            <div class="home_lines_container">
+                <div class="home_line"/>
+                <div class="home_line"/>
+            </div>
         </p>
     }
 }
