@@ -47,3 +47,8 @@ $side-margin: 3%;
   @extend %BigTitle;
   color: var(--background-shadow-color);
 }
+
+%Line {
+  background-color: $accent-color;
+  border-radius: 20em;
+}
