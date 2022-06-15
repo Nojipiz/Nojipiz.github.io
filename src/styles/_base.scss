@@ -4,16 +4,22 @@
 */
 
 :root {
-  --background-color: black;
+  --background-color: #141414;
+  --background-contrast-color: white;
   --background-shadow-color: #202020;
+  --background-shadow-contrast-color: #fafafa;
 }
 .theme_dark {
   --background-color: white;
+  --background-contrast-color: black;
   --background-shadow-color: #202020;
+  --background-shadow-contrast-color: #fafafa;
 }
 
 $background-color: var(--background-color);
+$background-contrast-color: var(--background-contrast-color);
 $background-shadow-color: var(--background-shadow-color);
+$background-shadow-contrast-color: var(--background-shadow-contrast-color);
 $accent-color: #ff4d5a;
 
 /*
@@ -32,8 +38,8 @@ $side-margin: 3%;
 }
 
 %Section {
-  margin-left: $side-margin;
-  margin-right: $side-margin;
+  padding-left: $side-margin;
+  padding-right: $side-margin;
 }
 
 %ShadowBox {
@@ -41,7 +47,7 @@ $side-margin: 3%;
 }
 
 %BigTitle {
-  font-size: 15vw;
+  font-size: 10vw;
 }
 
 %BackgroundTitle {

@@ -16,7 +16,7 @@ pub fn portfolio() -> Html {
     let content_text = get_portfolio_content_text(store);
     html! {
         <section id="portfolio" class="portfolio_section">
-            <h2 class="rigth_title"> {content_text[0]} </h2>
+            <h2 class="rigth_title"> {content_text[0].to_uppercase()} </h2>
             <PortfolioElements/>
         </section>
     }

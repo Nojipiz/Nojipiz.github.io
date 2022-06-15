@@ -27,7 +27,7 @@ pub fn get_home_content_text(store: StoreRef<PersistentStore<AppProperties>>) ->
             "David",
             "Soy desarrollador de software",
         ],
-        _ => ["Hi, I'm ", "David", "I'm a software developer"],
+        _ => ["Hello, I'm ", "David", "I'm a software developer"],
     }
 }
 

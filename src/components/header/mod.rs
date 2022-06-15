@@ -67,7 +67,7 @@ fn nav_sections() -> Html {
             section_names.iter().enumerate().map(|(index, name)| {
             html!{
                 <a href={section_ids[index]}>
-                {name}
+                {name.to_uppercase()}
                 </a>
                 }
             }).collect::<Html>()
