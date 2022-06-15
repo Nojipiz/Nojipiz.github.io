@@ -4,20 +4,25 @@
   @extend %Section;
   @extend %Center;
   height: 95vh;
+
   @include media("<phone") {
     flex-direction: column;
   }
-}
 
-.home_lines_container {
-  .home_line {
-    @extend %Line;
-    width: 100%;
-    height: 0.4rem;
-    margin-bottom: 0.3rem;
+  .home_lines_container {
+    .home_line {
+      @extend %Line;
+      width: 50%;
+      height: 0.4rem;
+      margin-bottom: 0.3rem;
+    }
+    .home_line:last-of-type {
+      margin-left: 4rem;
+    }
   }
-  .home_line:last-of-type {
-    margin-left: 1rem;
+
+  .presentation_title {
+    font-weight: 600;
   }
 }
 

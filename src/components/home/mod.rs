@@ -29,14 +29,16 @@ fn presentation_title() -> Html {
     let store = use_store::<PersistentStore<AppProperties>>();
     let presentation_text = get_home_content_text(store);
     html! {
-        <p>
+        <div>
+            <h1 class="presentation_title">
             {presentation_text[0]}<b>{presentation_text[1]} </b>
             <br/>
             {presentation_text[2]}
+            </h1>
             <div class="home_lines_container">
                 <div class="home_line"/>
                 <div class="home_line"/>
             </div>
-        </p>
+        </div>
     }
 }
