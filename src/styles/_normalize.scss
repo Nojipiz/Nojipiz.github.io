@@ -107,6 +107,7 @@ html {
   }
   background: $background;
   color: $color;
+  scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%; // 2
   -ms-text-size-adjust: 100%; // 2
 }

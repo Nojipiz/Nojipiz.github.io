@@ -8,21 +8,24 @@
   @include media("<phone") {
     flex-direction: column;
   }
+}
 
-  .home_lines_container {
-    .home_line {
-      @extend %Line;
-      width: 50%;
-      height: 0.4rem;
-      margin-bottom: 0.3rem;
-    }
-    .home_line:last-of-type {
-      margin-left: 4rem;
-    }
+.home_lines_container {
+  .home_line {
+    @extend %Line;
+    width: 40%;
+    height: 0.4rem;
+    margin-bottom: 0.4rem;
   }
-
-  .presentation_title {
-    font-weight: 600;
+  .home_line:last-of-type {
+    margin-left: 7rem;
+  }
+}
+.presentation_title {
+  font-weight: 600;
+  font-size: 3rem;
+  b {
+    color: $accent-color;
   }
 }
 
