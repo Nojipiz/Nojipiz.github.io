@@ -2,7 +2,10 @@ use yew::prelude::*;
 use yewdux::prelude::{Dispatcher, PersistentStore};
 use yewdux_functional::*;
 
-use crate::{app::AppProperties, languages::languages::get_header_section_names};
+use crate::{
+    app::AppProperties, hooks::use_current_section::use_current_section,
+    languages::languages::get_header_section_names,
+};
 
 #[function_component(Header)]
 pub fn nav() -> Html {
@@ -58,17 +61,25 @@ fn get_properties_buttons() -> Html {
 
 #[function_component(NavigationSections)]
 fn nav_sections() -> Html {
+    let current_section = use_current_section();
     let store = use_store::<PersistentStore<AppProperties>>();
-    let section_ids: [&str; 4] = ["/#home", "/#portfolio", "/#about", "/#contact"];
+    let section_ids: [&str; 4] = ["home", "portfolio", "about", "contact"];
     let section_names: [&str; 4] = get_header_section_names(store);
     html! {
         <nav class={"navigation_section"}>
         {
             section_names.iter().enumerate().map(|(index, name)| {
-            html!{
-                <a href={section_ids[index]}>
-                {name.to_uppercase()}
-                </a>
+                if current_section == {section_ids[index]} {
+                    return html!{
+                        <a href={section_ids[index]}>
+                        <b>{name.to_lowercase()}</b>
+                        </a>
+                    }
+                }
+                return html!{
+                    <a href={format!("/#{}", section_ids[index])}>
+                    {name.to_uppercase()}
+                    </a>
                 }
             }).collect::<Html>()
         }

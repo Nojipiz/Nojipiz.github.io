@@ -15,7 +15,7 @@ pub fn use_current_section() -> String {
                 .dyn_ref::<HtmlElement>()
                 .unwrap()
                 .clone();
-            if position.1 < f64::from(section.offset_top().clone()) {
+            if position.1 >= f64::from(section.offset_top().clone() - 60) {
                 let string_box = Box::leak(section.id().into_boxed_str());
                 current_section.set(string_box);
             }
