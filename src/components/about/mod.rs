@@ -10,7 +10,7 @@ pub fn about() -> Html {
     let content_text = get_about_context_text(store);
     html! {
         <section id="about" class="about_section">
-        <h2 class="left_title"> {content_text[6]} </h2>
+        <h2 class="left_title"> {content_text[6].to_uppercase()} </h2>
         <WhoIAm content={content_text}/>
         <MySkills content={content_text}/>
         <MyWork content={content_text}/>

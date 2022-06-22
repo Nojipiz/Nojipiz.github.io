@@ -1,19 +1,23 @@
-@import '../../styles/_base';
+@import "../../styles/_base";
 
-.portfolio_section{
+.portfolio_section {
   @extend %Section;
+  background: linear-gradient(
+    180deg,
+    $background-color 6vw,
+    $background-contrast-color 0vw
+  );
 }
 
-.rigth_title{
+.rigth_title {
   @extend %BigTitle;
   text-align: right;
 }
 
-.project_container{
+.project_container {
   @extend %Center;
   @extend %ShadowBox;
-  & img{
-   width: 10rem; 
+  & img {
+    width: 10rem;
   }
-  margin-top: 2rem; // Todo: Better gap sys
 }

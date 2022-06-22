@@ -1,6 +1,7 @@
 pub mod app;
 pub mod components;
 pub mod fetch;
+pub mod hooks;
 pub mod languages;
 pub mod routes;
 
