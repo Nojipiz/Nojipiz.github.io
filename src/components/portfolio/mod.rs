@@ -43,7 +43,7 @@ fn portfolio_elements() -> Html {
                 <ProjectComponent project={element.clone()}/>
             }
         }).collect::<Html>(),
-        None => html!{<p>{"F"}</p>}
+        None => html!{<p>{"No data sorry :("}</p>}
         }
     }
     }</>

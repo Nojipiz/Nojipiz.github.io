@@ -8,6 +8,7 @@
   justify-content: space-between;
   display: flex;
   background-color: $background-color;
+  z-index: 200;
   .header_wrapper {
     width: 100%;
     display: flex;
@@ -29,6 +30,20 @@
     font-weight: 400;
     font-size: 1.2rem;
     color: $background-contrast-color;
+  }
+  .current_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    a {
+      font-weight: 600;
+    }
+    .current_line {
+      @extend %Line;
+      height: 0.3rem;
+      width: 110%;
+    }
   }
 }
 

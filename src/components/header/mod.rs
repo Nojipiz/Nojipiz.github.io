@@ -71,9 +71,12 @@ fn nav_sections() -> Html {
             section_names.iter().enumerate().map(|(index, name)| {
                 if current_section == {section_ids[index]} {
                     return html!{
-                        <a href={section_ids[index]}>
-                        <b>{name.to_lowercase()}</b>
-                        </a>
+                        <div class="current_container">
+                            <a href={section_ids[index]}>
+                                {name.to_uppercase()}
+                            </a>
+                            <div class="current_line"/>
+                        </div>
                     }
                 }
                 return html!{

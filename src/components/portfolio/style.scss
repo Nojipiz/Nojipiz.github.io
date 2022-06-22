@@ -17,7 +17,15 @@
 .project_container {
   @extend %Center;
   @extend %ShadowBox;
+  background: $background-contrast-color;
+  color: $background-color;
+  margin-top: 5rem;
   & img {
     width: 10rem;
   }
+}
+
+@function toRGB($color) {
+  @return "rgb(" + red($color) + ", " + green($color) + ", " + blue($color) +
+    ")";
 }

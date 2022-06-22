@@ -35,11 +35,3 @@ web-sys = { version = "=0.3.57", features = [
 js-sys = "=0.3.57"
 wee_alloc = "0.4.5"
 reqwest = { version = "0.11.11", features = ["json"] }
-
-# [dev-dependencies]
-# wasm-bindgen-test = "0.3.30"
-# gloo-utils = "0.1.0"
-
-# [dev-dependencies.web-sys]
-# version = "=0.3.57"
-# features = ["DocumentFragment"]
