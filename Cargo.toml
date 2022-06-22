@@ -23,24 +23,23 @@ yewdux-functional = "0.1.0"
 yew-hooks = "0.1.56"
 serde = "1.0.137"
 wasm-bindgen = "=0.2.80"
-wasm-bindgen-futures = "0.4"
+wasm-bindgen-futures = "0.4.30"
 wasm-logger = "0.2.0"
-web-sys = "0.3.57"
-js-sys = "0.3.57"
+web-sys = { version = "=0.3.57", features = [
+  "Window",
+  "Document",
+  "DocumentFragment",
+  "NodeList",
+  "HtmlElement",
+] }
+js-sys = "=0.3.57"
 wee_alloc = "0.4.5"
 reqwest = { version = "0.11.11", features = ["json"] }
 
-[dev-dependencies]
-wasm-bindgen-test = "0.3.14"
-gloo-utils = "0.1.0"
+# [dev-dependencies]
+# wasm-bindgen-test = "0.3.30"
+# gloo-utils = "0.1.0"
 
-[dev-dependencies.web-sys]
-version = "0.3.57"
-features = [
-  "Window",
-  "Document",
-  "HtmlCanvasElement",
-  "Element",
-  "HtmlCollection",
-  "CanvasRenderingContext2d",
-]
+# [dev-dependencies.web-sys]
+# version = "=0.3.57"
+# features = ["DocumentFragment"]
