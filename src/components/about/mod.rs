@@ -67,10 +67,10 @@ fn my_work(props: &AboutProps) -> Html {
 #[function_component(ToolBox)]
 fn tool_box(props: &AboutProps) -> Html {
     html! {
-        <>
+        <div class={"tool_box_container"}>
             <h1>{props.content[5]}</h1>
             <p>{"Linux / Figma (TODO)"}</p>
-        </>
+        </div>
     }
 }
 
