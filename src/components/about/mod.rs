@@ -22,9 +22,13 @@ pub fn about() -> Html {
 #[function_component(WhoIAm)]
 fn who_i_am_component(props: &AboutProps) -> Html {
     html! {
-        <div class={"information_container"}>
-            <div>
+        <div class={"who_i_am_container"}>
+            <div class={"information_container"}>
+                <div class={"title_container"}>
+                <div class="line"/>
                 <h1>{props.content[0]}</h1>
+                <div class="line_bottom"/>
+                </div>
                 <p>{props.content[1]}</p>
             </div>
             <img src="https://avatarfiles.alphacoders.com/229/229959.png"/>
@@ -35,21 +39,26 @@ fn who_i_am_component(props: &AboutProps) -> Html {
 #[function_component(MySkills)]
 fn my_skills(props: &AboutProps) -> Html {
     html! {
-        <>
+        <div class={"my_skills_container"}>
             <h1>{props.content[2]}</h1>
             <p>{"Web / Mobile / Languages (TODO)"}</p>
-        </>
+        </div>
     }
 }
 
 #[function_component(MyWork)]
 fn my_work(props: &AboutProps) -> Html {
     html! {
-        <div class={"information_container"}>
+        <div class={"my_work_container"}>
+            <div class={"title_container"}>
+                <h1>{props.content[3]}</h1>
+                <div class="line"/>
+            </div>
+            <div class={"content_wrapper"}>
             <img src="https://avatarfiles.alphacoders.com/229/229959.png"/>
             <div>
-                <h1>{props.content[3]}</h1>
                 <p>{props.content[4]}</p>
+            </div>
             </div>
         </div>
     }
