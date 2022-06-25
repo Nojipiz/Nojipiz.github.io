@@ -2,11 +2,11 @@
 
 .contact_section {
   @extend %Section;
-  display: flex;
+  @extend %Center;
   flex-direction: column;
-  align-items: center;
   background-color: $background-color;
   color: $background-contrast-color;
+  padding-top: 5rem;
   .title_container {
     @extend %Center;
     flex-direction: column;
@@ -14,9 +14,10 @@
       @extend %Line;
       background-color: $accent-color;
       width: 120%;
-      height: 0.3rem;
+      height: 0.5rem;
     }
     h1 {
+      @extend %SectionTitle;
       margin: 0.1rem;
     }
   }
@@ -37,6 +38,8 @@
   color: white;
   min-width: 14rem;
   min-height: 12rem;
+  font-size: 1.5rem;
+  padding: 1rem;
   p {
     margin: 0.6rem 0rem 0rem 0rem;
   }
@@ -56,27 +59,33 @@
 }
 
 .contact_form {
+  $space: 1rem;
+  margin: 4rem;
   display: flex;
   flex-direction: column;
   width: 80%;
+  font-size: 2rem;
   .inter_wrapper {
     @extend %Center;
     input {
       width: 50%;
     }
   }
+  input,
+  button {
+    border: none;
+    outline: none;
+    color: white;
+    padding: 0.6rem;
+    margin: $space $space 0rem 0rem;
+  }
   input {
     background-color: $container-color;
-    outline: none;
-    border: none;
-    color: white;
-    padding: 0.4rem;
-    margin: 0.2rem 0.2rem 0rem 0rem;
   }
   button {
     background-color: $accent-color;
-    color: white;
-    border: none;
-    outline: none;
+  }
+  h1 {
+    font-size: 3rem;
   }
 }

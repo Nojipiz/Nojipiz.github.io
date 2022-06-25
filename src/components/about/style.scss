@@ -28,7 +28,7 @@
   display: flex;
   flex-direction: row;
   color: $background-contrast-color;
-  width: 70%;
+  width: 80%;
   .title_container {
     display: flex;
     flex-direction: column;
@@ -50,10 +50,11 @@
     flex-direction: column;
     align-items: flex-end;
     margin-right: 15%;
+    width: 50%;
   }
   img {
-    width: 20em;
-    height: 20em;
+    width: 50%;
+    max-width: 20rem;
   }
 }
 

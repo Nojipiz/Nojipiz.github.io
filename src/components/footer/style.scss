@@ -1,9 +1,9 @@
-@import '../../styles/_base';
+@import "../../styles/_base";
 
-.main_footer{
+.main_footer {
   @extend %Section;
-  p{
+  p {
     text-align: center;
-    font-size: 0.5em;
+    font-size: 1rem;
   }
 }

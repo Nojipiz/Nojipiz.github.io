@@ -12,7 +12,7 @@ pub fn contact() -> Html {
         <section id="contact" class="contact_section">
             <div class={"title_container"}>
                 <div class={"line"}/>
-                <h1>{text_content[0]}</h1>
+                <h1>{text_content[0].to_uppercase()}</h1>
                 <div class={"line"}/>
             </div>
             <ContactWaysContainer content={text_content}/>
@@ -25,8 +25,8 @@ pub fn contact() -> Html {
 fn contact_form(props: &ContactProps) -> Html {
     html! {
         <>
-        <h1>{props.content[3]}</h1>
         <form class={"contact_form"}>
+        <h1>{props.content[3].to_uppercase()}</h1>
             <div class={"inter_wrapper"}>
                 <input type="text" id="formName" name="name" placeholder={props.content[4]}/>
                 <input type="email" id="formEmail" name="email" placeholder={props.content[5]}/>

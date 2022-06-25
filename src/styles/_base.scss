@@ -53,6 +53,11 @@ $side-margin: 3%;
   color: white;
 }
 
+%SectionTitle {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
 %BackgroundTitle {
   @extend %BigTitle;
   color: var(--background-shadow-color);
