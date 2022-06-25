@@ -1,5 +1,7 @@
 @import "../../styles/_base";
 
+$component-width: 80%;
+
 .about_section {
   @extend %Section;
   display: flex;
@@ -11,11 +13,6 @@
     $background-contrast-color 6vw,
     $background-color 0vw
   );
-  .line {
-    @extend %Line;
-    width: 110%;
-    height: 0.3rem;
-  }
 }
 
 .left_title {
@@ -28,7 +25,7 @@
   display: flex;
   flex-direction: row;
   color: $background-contrast-color;
-  width: 80%;
+  width: $component-width;
   .title_container {
     display: flex;
     flex-direction: column;
@@ -38,7 +35,9 @@
       margin: 0.2rem 1rem;
     }
     .line {
-      margin-right: 2rem;
+      @extend %Line;
+      width: 110%;
+      height: 0.3rem;
     }
     .line_bottom {
       @extend .line;
@@ -51,6 +50,7 @@
     align-items: flex-end;
     margin-right: 15%;
     width: 50%;
+    text-align: justify;
   }
   img {
     width: 50%;
@@ -64,24 +64,33 @@
 
 .my_work_container {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  width: $component-width;
   .title_container {
     display: flex;
     flex-direction: column;
-    align-items: center;
     .line {
-      width: 130%;
+      @extend %Line;
+      width: 110%;
+      height: 0.3rem;
+    }
+    h1 {
+      margin-left: 2rem;
+    }
+    .line_bottom {
+      @extend .line;
+      margin-left: 2rem;
     }
   }
   .content_wrapper {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin-top: 2rem;
-    img {
-      width: 20%;
-      margin: 0 15%;
-    }
+    align-items: flex-start;
+  }
+  img {
+    width: 20%;
+    margin: 0 15%;
   }
 }
 

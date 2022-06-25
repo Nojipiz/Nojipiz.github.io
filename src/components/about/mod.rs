@@ -50,16 +50,15 @@ fn my_skills(props: &AboutProps) -> Html {
 fn my_work(props: &AboutProps) -> Html {
     html! {
         <div class={"my_work_container"}>
-            <div class={"title_container"}>
-                <h1>{props.content[3]}</h1>
-                <div class="line"/>
-            </div>
-            <div class={"content_wrapper"}>
             <img src="https://avatarfiles.alphacoders.com/229/229959.png"/>
-            <div>
+            <div class={"content_wrapper"}>
+                <div class={"title_container"}>
+                    <div class="line"/>
+                    <h1>{props.content[3]}</h1>
+                    <div class="line_bottom"/>
+                </div>
                 <p>{props.content[4]}</p>
-            </div>
-            </div>
+           </div>
         </div>
     }
 }
