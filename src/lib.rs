@@ -3,6 +3,7 @@ pub mod components;
 pub mod fetch;
 pub mod hooks;
 pub mod languages;
+pub mod resources;
 pub mod routes;
 
 use wasm_bindgen::prelude::*;
