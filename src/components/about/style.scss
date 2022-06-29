@@ -1,6 +1,6 @@
 @import "../../styles/_base";
 
-$component-width: 80%;
+$component-width: 100%;
 
 .about_section {
   @extend %Section;
@@ -23,8 +23,7 @@ $component-width: 80%;
 }
 
 .who_i_am_container {
-  display: flex;
-  flex-direction: row;
+  @extend %Center;
   color: $background-contrast-color;
   width: $component-width;
   .title_container {
@@ -53,8 +52,7 @@ $component-width: 80%;
     width: 50%;
   }
   img {
-    width: 50%;
-    max-width: 20rem;
+    width: 20%;
   }
 }
 
@@ -63,8 +61,7 @@ $component-width: 80%;
 }
 
 .my_work_container {
-  display: flex;
-  align-items: center;
+  @extend %Center;
   width: $component-width;
   .title_container {
     display: flex;
@@ -85,12 +82,12 @@ $component-width: 80%;
   .content_wrapper {
     display: flex;
     flex-direction: column;
-    margin-top: 2rem;
+    margin-left: 15%;
     align-items: flex-start;
+    width: 50%;
   }
   img {
     width: 20%;
-    margin: 0 15%;
   }
 }
 

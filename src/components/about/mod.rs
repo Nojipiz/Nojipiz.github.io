@@ -25,9 +25,9 @@ fn who_i_am_component(props: &AboutProps) -> Html {
         <div class={"who_i_am_container"}>
             <div class={"information_container"}>
                 <div class={"title_container"}>
-                <div class="line"/>
-                <h1>{props.content[0]}</h1>
-                <div class="line_bottom"/>
+                    <div class="line"/>
+                    <h1>{props.content[0].to_uppercase()}</h1>
+                    <div class="line_bottom"/>
                 </div>
                 <p>{props.content[1]}</p>
             </div>
@@ -40,7 +40,7 @@ fn who_i_am_component(props: &AboutProps) -> Html {
 fn my_skills(props: &AboutProps) -> Html {
     html! {
         <div class={"my_skills_container"}>
-            <h1>{props.content[2]}</h1>
+            <h1>{props.content[2].to_uppercase()}</h1>
             <p>{"Web / Mobile / Languages (TODO)"}</p>
         </div>
     }
@@ -54,7 +54,7 @@ fn my_work(props: &AboutProps) -> Html {
             <div class={"content_wrapper"}>
                 <div class={"title_container"}>
                     <div class="line"/>
-                    <h1>{props.content[3]}</h1>
+                    <h1>{props.content[3].to_uppercase()}</h1>
                     <div class="line_bottom"/>
                 </div>
                 <p>{props.content[4]}</p>
@@ -67,7 +67,7 @@ fn my_work(props: &AboutProps) -> Html {
 fn tool_box(props: &AboutProps) -> Html {
     html! {
         <div class={"tool_box_container"}>
-            <h1>{props.content[5]}</h1>
+            <h1>{props.content[5].to_uppercase()}</h1>
             <p>{"Linux / Figma (TODO)"}</p>
         </div>
     }
