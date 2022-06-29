@@ -23,14 +23,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  p {
-    color: red;
-  }
   a {
     text-decoration: none;
     font-weight: 400;
     font-size: 1.2rem;
-    color: $background-contrast-color;
+    color: white;
+    mix-blend-mode: difference;
+    opacity: 2;
   }
   .current_container {
     display: flex;

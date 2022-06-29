@@ -69,10 +69,11 @@ fn nav_sections() -> Html {
         <nav class={"navigation_section"}>
         {
             section_names.iter().enumerate().map(|(index, name)| {
+                let ref_formated = format!("/#{}", section_ids[index]);
                 if current_section == {section_ids[index]} {
                     return html!{
                         <div class="current_container">
-                            <a href={section_ids[index]}>
+                            <a href={ref_formated}>
                                 {name.to_uppercase()}
                             </a>
                             <div class="current_line"/>
@@ -80,7 +81,7 @@ fn nav_sections() -> Html {
                     }
                 }
                 return html!{
-                    <a href={format!("/#{}", section_ids[index])}>
+                    <a href={ref_formated}>
                     {name.to_uppercase()}
                     </a>
                 }

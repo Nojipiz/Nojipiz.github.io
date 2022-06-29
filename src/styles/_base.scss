@@ -8,20 +8,22 @@
   --background-contrast-color: white;
   --background-shadow-color: #202020;
   --background-shadow-contrast-color: #c5c5c5;
+  --background-container-color: #232838;
 }
 .theme_dark {
   --background-color: white;
   --background-contrast-color: black;
   --background-shadow-color: #202020;
   --background-shadow-contrast-color: #fafafa;
+  --background-container-color: #f9f9f9;
 }
 
 $background-color: var(--background-color);
 $background-contrast-color: var(--background-contrast-color);
 $background-shadow-color: var(--background-shadow-color);
 $background-shadow-contrast-color: var(--background-shadow-contrast-color);
+$container-color: var(--background-container-color);
 $accent-color: #ff4d5a;
-$container-color: #323c47;
 
 /*
   Size variables

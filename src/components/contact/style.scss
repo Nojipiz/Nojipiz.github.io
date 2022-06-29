@@ -35,7 +35,7 @@
   border-radius: 2rem;
   flex-direction: column;
   background-color: $container-color;
-  color: white;
+  color: $background-contrast-color;
   min-width: 14rem;
   min-height: 12rem;
   padding: 1rem;
@@ -53,6 +53,7 @@
   }
   .contact_icon {
     filter: brightness(0) invert(1);
+    mix-blend-mode: difference;
     width: 4rem;
   }
 }

@@ -2,7 +2,15 @@ use yew::prelude::*;
 use yewdux::prelude::PersistentStore;
 use yewdux_functional::use_store;
 
-use crate::{app::AppProperties, languages::languages::get_about_context_text};
+use crate::{
+    app::AppProperties,
+    languages::languages::get_about_context_text,
+    resources::resources::{
+        get_android_icon, get_docker_icon, get_firebase_icon, get_java_icon, get_javascript_icon,
+        get_kotlin_icon, get_linux_icon, get_mongo_icon, get_postgre_icon, get_react_icon,
+        get_rust_icon, get_spring_icon, get_typescript_icon,
+    },
+};
 
 #[function_component(About)]
 pub fn about() -> Html {
@@ -67,8 +75,20 @@ fn my_work(props: &AboutProps) -> Html {
 fn tool_box(props: &AboutProps) -> Html {
     html! {
         <div class={"tool_box_container"}>
+        <div class={"title_container"}>
+            <div class="line"/>
             <h1>{props.content[5].to_uppercase()}</h1>
-            <p>{"Linux / Figma (TODO)"}</p>
+            <div class="line"/>
+        </div>
+            <div class={"tool_box"}>
+                {get_tools_list().iter().map(|tool| {
+                    html! {
+                        <div class={"tool_box_item"}>
+                            <img src={tool.icon.clone()}/>
+                        </div>
+                    }
+                }).collect::<Html>()}
+            </div>
         </div>
     }
 }
@@ -76,4 +96,67 @@ fn tool_box(props: &AboutProps) -> Html {
 #[derive(Properties, PartialEq)]
 struct AboutProps {
     content: [&'static str; 7],
+}
+
+fn get_tools_list() -> Vec<Tool> {
+    vec![
+        Tool {
+            name: "Android",
+            icon: get_android_icon(),
+        },
+        Tool {
+            name: "Kotlin",
+            icon: get_kotlin_icon(),
+        },
+        Tool {
+            name: "Java",
+            icon: get_java_icon(),
+        },
+        Tool {
+            name: "Spring",
+            icon: get_spring_icon(),
+        },
+        Tool {
+            name: "Typescript",
+            icon: get_typescript_icon(),
+        },
+        Tool {
+            name: "Javascript",
+            icon: get_javascript_icon(),
+        },
+        Tool {
+            name: "React",
+            icon: get_react_icon(),
+        },
+        Tool {
+            name: "Firebase",
+            icon: get_firebase_icon(),
+        },
+        Tool {
+            name: "MongoDb",
+            icon: get_mongo_icon(),
+        },
+        Tool {
+            name: "PostgresSQL",
+            icon: get_postgre_icon(),
+        },
+        Tool {
+            name: "Rust",
+            icon: get_rust_icon(),
+        },
+        Tool {
+            name: "Linux",
+            icon: get_linux_icon(),
+        },
+        Tool {
+            name: "Docker",
+            icon: get_docker_icon(),
+        },
+    ]
+}
+
+#[derive(Properties, PartialEq)]
+struct Tool {
+    name: &'static str,
+    icon: String,
 }

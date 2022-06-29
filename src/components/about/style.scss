@@ -92,7 +92,32 @@ $component-width: 100%;
 }
 
 .tool_box_container {
-  display: flex;
+  @extend %Center;
   flex-direction: column;
   color: $background-contrast-color;
+  .title_container {
+    @extend %Center;
+    flex-direction: column;
+    .line {
+      @extend %Line;
+      width: 110%;
+      height: 0.3rem;
+    }
+  }
+  .tool_box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    border-radius: 2rem;
+    background-color: $container-color;
+    width: 70%;
+    padding: 2rem;
+    margin: 2rem;
+  }
+  .tool_box_item {
+    margin: 1rem 2rem;
+    img {
+      height: 6.5rem;
+    }
+  }
 }
