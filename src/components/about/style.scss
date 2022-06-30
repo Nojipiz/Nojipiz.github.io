@@ -115,9 +115,30 @@ $component-width: 100%;
     margin: 2rem;
   }
   .tool_box_item {
-    margin: 1rem 2rem;
+    display: flex;
+    position: relative;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    margin: 2rem 1.9rem;
+    filter: grayscale(100%);
     img {
-      height: 6.5rem;
+      height: 6rem;
+    }
+    span {
+      display: none;
+      background-color: $container-color;
+      color: $background-contrast-color;
+    }
+    &:hover {
+      filter: none;
+      span {
+        display: inline-flex;
+        background-color: $container-color;
+        color: $background-contrast-color;
+        position: absolute;
+        bottom: -2.5rem;
+      }
     }
   }
 }

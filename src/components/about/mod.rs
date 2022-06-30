@@ -85,6 +85,7 @@ fn tool_box(props: &AboutProps) -> Html {
                     html! {
                         <div class={"tool_box_item"}>
                             <img src={tool.icon.clone()}/>
+                            <span>{tool.name}</span>
                         </div>
                     }
                 }).collect::<Html>()}
