@@ -20,8 +20,20 @@
   background: $background-contrast-color;
   color: $background-color;
   margin-top: 5rem;
-  & img {
-    width: 10rem;
+  font-size: 1.2rem;
+  .images_container {
+    img {
+      width: 10rem;
+    }
+  }
+
+  .info_container {
+    .project_title {
+      font-weight: 600;
+    }
+    .project_description {
+      line-height: 1.5;
+    }
   }
 }
 

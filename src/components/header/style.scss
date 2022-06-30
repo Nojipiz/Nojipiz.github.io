@@ -9,6 +9,7 @@
   display: flex;
   background-color: $background-color;
   z-index: 200;
+  padding: 0.8rem;
   .header_wrapper {
     width: 100%;
     display: flex;
@@ -26,7 +27,7 @@
   a {
     text-decoration: none;
     font-weight: 400;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     color: white;
     mix-blend-mode: difference;
     opacity: 2;

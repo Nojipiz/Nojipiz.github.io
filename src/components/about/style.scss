@@ -95,6 +95,7 @@ $component-width: 100%;
   @extend %Center;
   flex-direction: column;
   color: $background-contrast-color;
+  margin-top: 5rem;
   .title_container {
     @extend %Center;
     flex-direction: column;

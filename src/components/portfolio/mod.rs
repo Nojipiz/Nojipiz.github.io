@@ -56,9 +56,13 @@ fn project_component(props: &ProjectProps) -> Html {
     let project = get_project_fields(props.project.clone(), store);
     html! {
         <div class={"project_container"}>
-            <img src={project[2].clone()}/>
-            <h1>{project[0].clone()}</h1>
-            <p>{project[1].clone()}</p>
+            <div class={"images_container"}>
+                <img src={project[2].clone()}/>
+            </div>
+            <div class={"info_container"}>
+                <h1 class={"project_title"}>{project[0].clone()}</h1>
+                <p class={"project_description"}>{project[1].clone()}</p>
+            </div>
         </div>
     }
 }
