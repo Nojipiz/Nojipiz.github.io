@@ -21,9 +21,19 @@
   color: $background-color;
   margin-top: 5rem;
   font-size: 1.2rem;
+  padding: 3rem 0;
+
   .images_container {
-    img {
-      width: 10rem;
+    position: relative;
+    .background_image {
+      width: 20rem;
+    }
+    .project_image {
+      $offset_position: -2rem;
+      width: 8rem;
+      position: absolute;
+      right: $offset_position;
+      bottom: $offset_position;
     }
   }
 

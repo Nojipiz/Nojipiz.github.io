@@ -47,14 +47,24 @@ pub fn get_portfolio_content_text(
 pub fn get_project_fields(
     project: Project,
     store: StoreRef<PersistentStore<AppProperties>>,
-) -> [String; 3] {
+) -> [String; 4] {
     let language: String = store
         .state()
         .map(|state| state.language.clone())
         .unwrap_or_default();
     match language.as_str() {
-        "es" => [project.title_es, project.description_es, project.img],
-        _ => [project.title, project.description, project.img],
+        "es" => [
+            project.title_es,
+            project.description_es,
+            project.img,
+            project.background_img,
+        ],
+        _ => [
+            project.title,
+            project.description,
+            project.img,
+            project.background_img,
+        ],
     }
 }
 

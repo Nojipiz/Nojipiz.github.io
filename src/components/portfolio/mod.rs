@@ -57,7 +57,8 @@ fn project_component(props: &ProjectProps) -> Html {
     html! {
         <div class={"project_container"}>
             <div class={"images_container"}>
-                <img src={project[2].clone()}/>
+                <img src={project[3].clone()} class={"background_image"}/>
+                <img src={project[2].clone()} class={"project_image"}/>
             </div>
             <div class={"info_container"}>
                 <h1 class={"project_title"}>{project[0].clone()}</h1>
@@ -90,5 +91,6 @@ pub struct Project {
     pub title_es: String,
     pub description: String,
     pub description_es: String,
+    pub background_img: String,
     pub img: String,
 }
