@@ -50,4 +50,13 @@
 
 .options_wrapper {
   @extend %Center;
+  .property_button {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: $background-contrast-color;
+    .icon {
+      margin-right: 0.2rem;
+    }
+  }
 }
