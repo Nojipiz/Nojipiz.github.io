@@ -25,6 +25,7 @@
 
   .images_container {
     position: relative;
+    margin: 1rem;
     .background_image {
       width: 20rem;
     }
@@ -36,7 +37,6 @@
       bottom: $offset_position;
     }
   }
-
   .info_container {
     .project_title {
       font-weight: 600;
@@ -44,6 +44,15 @@
     .project_description {
       line-height: 1.5;
     }
+  }
+
+  .images_center {
+    @extend %Center;
+    width: 40%;
+  }
+  .info_center {
+    @extend %Center;
+    width: 40%;
   }
 }
 
