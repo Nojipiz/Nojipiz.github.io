@@ -144,13 +144,25 @@ pub fn get_contact_context_text(
 
 pub fn get_footer_context_text(
     store: StoreRef<PersistentStore<AppProperties>>,
-) -> [&'static str; 3] {
+) -> [&'static str; 5] {
     let language: String = store
         .state()
         .map(|state| state.language.clone())
         .unwrap_or_default();
     match language.as_str() {
-        "es" => ["Orlando Vargas", "Colombia", "nojipiz@gmail.com"],
-        _ => ["Orlando Vargas", "Colombia", "nojipiz@gmail.com"],
+        "es" => [
+            "Orlando Vargas",
+            "Colombia",
+            "nojipiz@gmail.com",
+            "Esta pagina fué escrita en",
+            "y compilada a",
+        ],
+        _ => [
+            "Orlando Vargas",
+            "Colombia",
+            "nojipiz@gmail.com",
+            "This page han been written in",
+            "and compiled to",
+        ],
     }
 }

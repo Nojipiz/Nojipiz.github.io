@@ -6,4 +6,13 @@
     text-align: center;
     font-size: 1rem;
   }
+  .wasm_information {
+    @extend %Center;
+    position: absolute;
+    right: 1rem;
+  }
+  .tech_logo {
+    width: 2rem;
+    margin: 0 0.5rem;
+  }
 }
