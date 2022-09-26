@@ -18,9 +18,9 @@ pub fn home() -> Html {
 #[function_component(MoonAnimation)]
 fn moon_animation() -> Html {
     html! {
-        <>
-            <canvas id="moonCanvas"> </canvas>
-        </>
+        <div class={"moon_container"}>
+            <canvas id="moonCanvas"/>
+        </div>
     }
 }
 
@@ -29,7 +29,7 @@ fn presentation_title() -> Html {
     let store = use_store::<PersistentStore<AppProperties>>();
     let presentation_text = get_home_content_text(store);
     html! {
-        <div>
+        <div class={"home_title_container"}>
             <h1 class="presentation_title">
             {presentation_text[0]}<b>{presentation_text[1]} </b>
             <br/>

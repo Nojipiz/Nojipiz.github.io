@@ -18,6 +18,7 @@
     margin-right: $side-margin;
   }
   @include media("<phone") {
+    padding: 1.5rem 0;
     .header_wrapper {
       flex-direction: column;
     }
@@ -55,6 +56,12 @@
     width: 80%;
     a {
       font-size: 1rem;
+    }
+  }
+  @include media("<tablet") {
+    width: 70%;
+    a {
+      font-size: 2vw;
     }
   }
   @include media("<phone") {

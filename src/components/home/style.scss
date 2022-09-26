@@ -5,9 +5,18 @@
   @extend %Center;
   height: 95vh;
   background-color: $background-color;
-
-  @include media("<phone") {
+  @include media("<laptop") {
     flex-direction: column;
+  }
+}
+
+.home_title_container {
+  display: flex;
+  height: 45vh;
+  flex-direction: column;
+  justify-content: center;
+  @include media("<phone") {
+    padding-top: 15vh;
   }
 }
 
@@ -22,20 +31,53 @@
   .home_line:last-of-type {
     margin-left: 7rem;
   }
+  @include media("<phone") {
+    margin-top: 0.4rem;
+    .home_line {
+      margin-bottom: 0.2rem;
+    }
+  }
 }
 .presentation_title {
+  $font-size: 3rem;
   font-weight: 600;
-  font-size: 3rem;
+  font-size: $font-size;
   color: $background-contrast-color;
   b {
-    font-size: 3rem;
+    font-size: $font-size;
     color: $accent-color;
+  }
+  @include media("<laptop") {
+    $font-size: 2.5rem;
+    font-size: $font-size;
+    b {
+      font-size: $font-size;
+    }
+  }
+
+  @include media("<tablet") {
+    $font-size: 4vh;
+    font-size: $font-size;
+    b {
+      font-size: $font-size;
+    }
+  }
+}
+
+.moon_container {
+  @extend %Center;
+  height: 50vh;
+  @include media("<tablet") {
+    margin-top: 8vh;
+  }
+  @include media("<phone") {
+    margin: 0;
   }
 }
 
 #moonCanvas {
   $size-moon: 20vw;
-  $min-size: 14em;
+  $min-size: 10rem;
   outline: none;
   width: $size-moon;
   height: $size-moon;
