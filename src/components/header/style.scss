@@ -17,6 +17,11 @@
     margin-left: $side-margin;
     margin-right: $side-margin;
   }
+  @include media("<phone") {
+    .header_wrapper {
+      flex-direction: column;
+    }
+  }
 }
 
 .navigation_section {
@@ -27,7 +32,7 @@
   a {
     text-decoration: none;
     font-weight: 400;
-    font-size: 1.6rem;
+    font-size: 1.2vw;
     color: white;
     mix-blend-mode: difference;
     opacity: 2;
@@ -46,6 +51,18 @@
       width: 110%;
     }
   }
+  @include media("<laptop") {
+    a {
+      font-size: 1.2rem;
+    }
+  }
+  @include media("<phone") {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    a {
+      font-size: 3vw;
+    }
+  }
 }
 
 .options_wrapper {
@@ -58,5 +75,10 @@
     .icon {
       margin-right: 0.2rem;
     }
+  }
+  @include media("<laptop") {
+    font-size: 1rem;
+  }
+  @include media("<phone") {
   }
 }
