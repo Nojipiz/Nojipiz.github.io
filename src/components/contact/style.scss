@@ -21,6 +21,9 @@
       margin: 0.1rem;
     }
   }
+  @include media("<tablet") {
+    padding-top: 0;
+  }
 }
 
 .contact_ways_container {
@@ -28,6 +31,9 @@
   flex-wrap: wrap;
   justify-content: space-around;
   width: 100%;
+  @include media("<tablet") {
+    margin-top: 2rem;
+  }
 }
 
 .contact_way {
@@ -56,10 +62,28 @@
     mix-blend-mode: difference;
     width: 4rem;
   }
+  @include media("<tablet") {
+    min-width: 10rem;
+    min-height: 10rem;
+    padding: 0.2rem;
+    p {
+      font-size: 0.7rem;
+    }
+    .contact_information {
+      font-size: 0.8rem;
+    }
+    .contact_icon {
+      width: 3rem;
+    }
+  }
+
+  @include media("<tablet") {
+    margin: 1rem;
+  }
 }
 
 .contact_form {
-  $space: 1rem;
+  $space: 0.4rem;
   margin: 4rem;
   display: flex;
   flex-direction: column;
@@ -72,11 +96,12 @@
   }
   input,
   button {
+    @extend %Center;
     border: none;
     outline: none;
     color: white;
     padding: 0.6rem;
-    margin: $space $space 0rem 0rem;
+    margin: $space;
   }
   input {
     background-color: $container-color;
@@ -86,5 +111,17 @@
   }
   h1 {
     @extend %SectionTitle;
+  }
+  @include media("<tablet") {
+    margin: 2rem;
+    padding: 0.3rem;
+    width: 100%;
+    input,
+    button {
+      font-size: 1rem;
+    }
+    h1 {
+      text-align: center;
+    }
   }
 }

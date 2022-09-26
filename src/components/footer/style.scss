@@ -15,4 +15,16 @@
     width: 2rem;
     margin: 0 0.5rem;
   }
+
+  @include media("<tablet") {
+    p {
+      font-size: 0.7rem;
+    }
+    .wasm_information {
+      font-size: 0.5rem;
+    }
+    .tech_logo {
+      width: 1.2rem;
+    }
+  }
 }
