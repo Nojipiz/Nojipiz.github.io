@@ -71,4 +71,7 @@ $side-margin: 3%;
 %Line {
   background-color: $accent-color;
   border-radius: 20em;
+  @include media("<phone") {
+    height: 0.2rem;
+  }
 }

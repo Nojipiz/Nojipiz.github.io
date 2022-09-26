@@ -6,7 +6,7 @@
   height: 95vh;
   background-color: $background-color;
   @include media("<laptop") {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 }
 
@@ -15,9 +15,6 @@
   height: 45vh;
   flex-direction: column;
   justify-content: center;
-  @include media("<phone") {
-    padding-top: 15vh;
-  }
 }
 
 .home_lines_container {
@@ -65,10 +62,12 @@
 }
 
 .moon_container {
-  @extend %Center;
-  height: 50vh;
+  display: flex;
+  height: 35vh;
+  align-items: end;
   @include media("<tablet") {
     margin-top: 8vh;
+    justify-content: flex-end;
   }
   @include media("<phone") {
     margin: 0;
@@ -78,9 +77,15 @@
 #moonCanvas {
   $size-moon: 20vw;
   $min-size: 10rem;
-  outline: none;
-  width: $size-moon;
-  height: $size-moon;
   min-width: $min-size;
   min-height: $min-size;
+  width: $size-moon;
+  height: $size-moon;
+  outline: none;
+
+  @include media("<laptop") {
+    $min-size: 40vw;
+    min-width: $min-size;
+    min-height: $min-size;
+  }
 }
