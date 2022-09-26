@@ -3,13 +3,7 @@ use yewdux::prelude::PersistentStore;
 use yewdux_functional::use_store;
 
 use crate::{
-    app::AppProperties,
-    languages::languages::get_about_context_text,
-    resources::resources::{
-        get_android_icon, get_docker_icon, get_firebase_icon, get_java_icon, get_javascript_icon,
-        get_kotlin_icon, get_linux_icon, get_mongo_icon, get_postgre_icon, get_react_icon,
-        get_rust_icon, get_spring_icon, get_typescript_icon,
-    },
+    app::AppProperties, languages::languages::get_about_context_text, resources::resources::*,
 };
 
 #[function_component(About)]
@@ -20,8 +14,8 @@ pub fn about() -> Html {
         <section id="about" class="about_section">
         <h2 class="left_title"> {content_text[6].to_uppercase()} </h2>
         <WhoIAm content={content_text}/>
-        <MySkills content={content_text}/>
         <MyWork content={content_text}/>
+        <MySkills />
         <ToolBox content={content_text}/>
         </section>
     }
@@ -45,11 +39,25 @@ fn who_i_am_component(props: &AboutProps) -> Html {
 }
 
 #[function_component(MySkills)]
-fn my_skills(props: &AboutProps) -> Html {
+fn my_skills() -> Html {
     html! {
         <div class={"my_skills_container"}>
-            <h1>{props.content[2].to_uppercase()}</h1>
-            <p>{"Web / Mobile / Languages (TODO)"}</p>
+            <div class={"skills_topics_container"}>
+                <SkillTopic icon_url={get_web_icon()} title={"Frontend"} description={"WEB"}/>
+                <SkillTopic icon_url={get_server_icon()} title={"Backend"} description={"WEB"}/>
+                <SkillTopic icon_url={get_mobile_icon()} title={"Mobile"} description={"WEB"}/>
+                <SkillTopic icon_url={get_serverless_icon()} title={"Serverless"} description={"WEB"}/>
+            </div>
+        </div>
+    }
+}
+
+#[function_component(SkillTopic)]
+fn skill_topic(props: &SkillTopicProps) -> Html {
+    html! {
+        <div class={"skill_topic_container"}>
+            <img src={props.icon_url.to_string()} class={"skill_icon"}/>
+            <h2 class={"skill_title"}>{props.title.clone()}</h2>
         </div>
     }
 }
@@ -92,6 +100,13 @@ fn tool_box(props: &AboutProps) -> Html {
             </div>
         </div>
     }
+}
+
+#[derive(Properties, PartialEq)]
+struct SkillTopicProps {
+    title: String,
+    icon_url: String,
+    description: &'static str,
 }
 
 #[derive(Properties, PartialEq)]

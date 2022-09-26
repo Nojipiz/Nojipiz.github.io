@@ -57,7 +57,34 @@ $component-width: 100%;
 }
 
 .my_skills_container {
+  @extend %Center;
+  flex-direction: column;
   color: $background-contrast-color;
+  width: $component-width;
+  .skills_topics_container {
+    margin: 2rem;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+}
+
+.skill_topic_container {
+  @extend %Center;
+  background-color: $container-color;
+  flex-direction: column;
+  padding: 2rem;
+  border-radius: 2rem;
+  .skill_title {
+    font-size: 2rem;
+    font-weight: 500;
+  }
+  .skill_icon {
+    filter: brightness(0) invert(1);
+    mix-blend-mode: difference;
+    width: 4rem;
+  }
 }
 
 .my_work_container {
