@@ -62,18 +62,17 @@ $component-width: 100%;
   color: $background-contrast-color;
   width: $component-width;
   .skills_topics_container {
-    margin: 2rem;
     display: flex;
-    flex-direction: row;
-    width: 100%;
+    flex-wrap: wrap;
     justify-content: space-evenly;
+    margin: 2rem;
+    width: 100%;
   }
 }
 
 .skill_topic_container {
   @extend %Center;
   background-color: $container-color;
-  flex-direction: column;
   padding: 2rem;
   border-radius: 2rem;
   .skill_title {
