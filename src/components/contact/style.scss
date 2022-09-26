@@ -84,4 +84,7 @@
   button {
     background-color: $accent-color;
   }
+  h1 {
+    @extend %SectionTitle;
+  }
 }

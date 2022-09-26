@@ -58,6 +58,9 @@ $side-margin: 3%;
 %SectionTitle {
   font-size: 3rem;
   font-weight: 600;
+  @include media("<phone") {
+    font-size: 1rem;
+  }
 }
 
 %BackgroundTitle {

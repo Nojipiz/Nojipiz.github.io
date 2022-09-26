@@ -52,8 +52,9 @@
     }
   }
   @include media("<laptop") {
+    width: 80%;
     a {
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
   }
   @include media("<phone") {
