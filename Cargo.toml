@@ -17,19 +17,18 @@ crate-type = ["cdylib", "rlib"]
 log = "0.4.17"
 yew = "0.19.3"
 yew-router = "0.16.0"
-yewdux = "0.7.0"
-yewdux-functional = "0.1.0"
+yewdux = "0.8.2"
 yew-hooks = "0.1.56"
-serde = "1.0.137"
-wasm-bindgen = "=0.2.80"
-wasm-bindgen-futures = "0.4.30"
+serde = "1.0.145"
+wasm-bindgen = "0.2.83"
+wasm-bindgen-futures = "0.4.33"
 wasm-logger = "0.2.0"
-web-sys = { version = "=0.3.57", features = [
+web-sys = { version = "0.3.60", features = [
   "Window",
   "Document",
   "DocumentFragment",
   "NodeList",
   "HtmlElement",
 ] }
-js-sys = "=0.3.57"
-reqwest = { version = "0.11.11", features = ["json"] }
+js-sys = "0.3.60"
+reqwest = { version = "0.11.12", features = ["json"] }
