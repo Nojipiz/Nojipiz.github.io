@@ -1,12 +1,10 @@
-use yew::prelude::*;
-use yewdux::prelude::PersistentStore;
-use yewdux_functional::use_store;
-
 use crate::{app::AppProperties, languages::languages::get_contact_context_text};
+use yew::prelude::*;
+use yewdux::prelude::use_store;
 
 #[function_component(Contact)]
 pub fn contact() -> Html {
-    let store = use_store::<PersistentStore<AppProperties>>();
+    let store = use_store::<AppProperties>();
     let text_content = get_contact_context_text(store);
     html! {
         <section id="contact" class="contact_section">

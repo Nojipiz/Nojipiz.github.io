@@ -1,7 +1,6 @@
 use crate::languages::languages::*;
 use yew::prelude::*;
-use yewdux::prelude::PersistentStore;
-use yewdux_functional::use_store;
+use yewdux::prelude::use_store;
 
 use crate::app::AppProperties;
 
@@ -26,7 +25,7 @@ fn moon_animation() -> Html {
 
 #[function_component(PresentationTitle)]
 fn presentation_title() -> Html {
-    let store = use_store::<PersistentStore<AppProperties>>();
+    let store = use_store::<AppProperties>();
     let presentation_text = get_home_content_text(store);
     html! {
         <div class={"home_title_container"}>

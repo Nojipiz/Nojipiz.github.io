@@ -1,12 +1,10 @@
-use yew::prelude::*;
-use yewdux::prelude::PersistentStore;
-use yewdux_functional::use_store;
-
 use crate::{app::AppProperties, languages::languages::get_footer_context_text};
+use yew::prelude::*;
+use yewdux::prelude::use_store;
 
 #[function_component(Footer)]
 pub fn footer() -> Html {
-    let store = use_store::<PersistentStore<AppProperties>>();
+    let store = use_store::<AppProperties>();
     let content_text = get_footer_context_text(store);
     html!(
          <footer class={"main_footer"}>

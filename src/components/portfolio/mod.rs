@@ -1,8 +1,7 @@
 use serde::{Deserialize, Serialize};
 use yew::prelude::*;
 use yew_hooks::{use_async_with_options, UseAsyncOptions};
-use yewdux::prelude::PersistentStore;
-use yewdux_functional::use_store;
+use yewdux::prelude::use_store;
 
 use crate::{
     app::AppProperties,
@@ -12,7 +11,7 @@ use crate::{
 
 #[function_component(Portfolio)]
 pub fn portfolio() -> Html {
-    let store = use_store::<PersistentStore<AppProperties>>();
+    let store = use_store::<AppProperties>();
     let content_text = get_portfolio_content_text(store);
     html! {
         <section id="portfolio" class="portfolio_section">
@@ -52,7 +51,7 @@ fn portfolio_elements() -> Html {
 
 #[function_component(ProjectComponent)]
 fn project_component(props: &ProjectProps) -> Html {
-    let store = use_store::<PersistentStore<AppProperties>>();
+    let store = use_store::<AppProperties>();
     let project = get_project_fields(props.project.clone(), store);
     html! {
         <div class={"project_container"}>

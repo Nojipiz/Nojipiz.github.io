@@ -1,6 +1,5 @@
 use yew::prelude::*;
-use yewdux::prelude::{Dispatcher, PersistentStore};
-use yewdux_functional::*;
+use yewdux::prelude::use_store;
 
 use crate::{
     app::AppProperties, hooks::use_current_section::use_current_section,
@@ -21,22 +20,16 @@ pub fn nav() -> Html {
 
 #[function_component(PropertiesButtons)]
 fn get_properties_buttons() -> Html {
-    let store = use_store::<PersistentStore<AppProperties>>();
-    let language = store
-        .state()
-        .map(|state| state.language.clone())
-        .unwrap_or_default();
-    let change_language = store.dispatch().reduce_callback(|state| {
+    let (properties, dispatch_properties) = use_store::<AppProperties>();
+    let language = properties.language.clone();
+    let change_language = dispatch_properties.reduce_mut_callback(|state| {
         state.language = match state.language.as_str() {
             "en" => "es",
             _ => "en",
         }
         .to_owned();
     });
-    let color_scheme = store
-        .state()
-        .map(|state| state.color_scheme.clone())
-        .unwrap_or_default();
+    let color_scheme = properties.color_scheme.clone();
     {
         let current_scheme = color_scheme.clone();
         use_effect(move || {
@@ -44,7 +37,7 @@ fn get_properties_buttons() -> Html {
             || ()
         });
     }
-    let change_color_scheme = store.dispatch().reduce_callback(|state| {
+    let change_color_scheme = dispatch_properties.reduce_mut_callback(|state| {
         state.color_scheme = match state.color_scheme.as_str() {
             "light" => "dark",
             _ => "light",
@@ -68,7 +61,7 @@ fn get_properties_buttons() -> Html {
 #[function_component(NavigationSections)]
 fn nav_sections() -> Html {
     let current_section = use_current_section();
-    let store = use_store::<PersistentStore<AppProperties>>();
+    let store = use_store::<AppProperties>();
     let section_ids: [&str; 4] = ["home", "portfolio", "about", "contact"];
     let section_names: [&str; 4] = get_header_section_names(store);
     html! {

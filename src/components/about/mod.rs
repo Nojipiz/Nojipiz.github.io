@@ -1,14 +1,12 @@
-use yew::prelude::*;
-use yewdux::prelude::PersistentStore;
-use yewdux_functional::use_store;
-
 use crate::{
     app::AppProperties, languages::languages::get_about_context_text, resources::resources::*,
 };
+use yew::prelude::*;
+use yewdux::prelude::use_store;
 
 #[function_component(About)]
 pub fn about() -> Html {
-    let store = use_store::<PersistentStore<AppProperties>>();
+    let store = use_store::<AppProperties>();
     let content_text = get_about_context_text(store);
     html! {
         <section id="about" class="about_section">
