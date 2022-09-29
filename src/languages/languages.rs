@@ -1,26 +1,21 @@
-use yewdux::prelude::PersistentStore;
-use yewdux_functional::StoreRef;
-
 use crate::{app::AppProperties, components::portfolio::Project};
+use std::rc::Rc;
+use yewdux::prelude::*;
 
 pub fn get_header_section_names(
-    store: StoreRef<PersistentStore<AppProperties>>,
+    store: (Rc<AppProperties>, Dispatch<AppProperties>),
 ) -> [&'static str; 4] {
-    let language = store
-        .state()
-        .map(|state| state.language.clone())
-        .unwrap_or_default();
+    let language = store.0.language.clone();
     match language.as_str() {
         "es" => ["home", "portafolio", "sobre", "contacto"],
         _ => ["home", "portfolio", "about", "contact"],
     }
 }
 
-pub fn get_home_content_text(store: StoreRef<PersistentStore<AppProperties>>) -> [&'static str; 3] {
-    let language: String = store
-        .state()
-        .map(|state| state.language.clone())
-        .unwrap_or_default();
+pub fn get_home_content_text(
+    store: (Rc<AppProperties>, Dispatch<AppProperties>),
+) -> [&'static str; 3] {
+    let language: String = store.0.language.clone();
     match language.as_str() {
         "es" => [
             "Hola, mi nombre es ",
@@ -32,12 +27,9 @@ pub fn get_home_content_text(store: StoreRef<PersistentStore<AppProperties>>) ->
 }
 
 pub fn get_portfolio_content_text(
-    store: StoreRef<PersistentStore<AppProperties>>,
+    store: (Rc<AppProperties>, Dispatch<AppProperties>),
 ) -> [&'static str; 1] {
-    let language: String = store
-        .state()
-        .map(|state| state.language.clone())
-        .unwrap_or_default();
+    let language: String = store.0.language.clone();
     match language.as_str() {
         "es" => ["Portafolio"],
         _ => ["Portfolio"],
@@ -46,12 +38,9 @@ pub fn get_portfolio_content_text(
 
 pub fn get_project_fields(
     project: Project,
-    store: StoreRef<PersistentStore<AppProperties>>,
+    store: (Rc<AppProperties>, Dispatch<AppProperties>),
 ) -> [String; 4] {
-    let language: String = store
-        .state()
-        .map(|state| state.language.clone())
-        .unwrap_or_default();
+    let language: String = store.0.language.clone();
     match language.as_str() {
         "es" => [
             project.title_es,
@@ -69,12 +58,9 @@ pub fn get_project_fields(
 }
 
 pub fn get_about_context_text(
-    store: StoreRef<PersistentStore<AppProperties>>,
+    store: (Rc<AppProperties>, Dispatch<AppProperties>),
 ) -> [&'static str; 7] {
-    let language: String = store
-        .state()
-        .map(|state| state.language.clone())
-        .unwrap_or_default();
+    let language: String = store.0.language.clone();
     match language.as_str() {
         "es" => [
             "Quien soy",
@@ -110,12 +96,9 @@ pub fn get_about_context_text(
 }
 
 pub fn get_contact_context_text(
-    store: StoreRef<PersistentStore<AppProperties>>,
+    store: (Rc<AppProperties>, Dispatch<AppProperties>),
 ) -> [&'static str; 9] {
-    let language: String = store
-        .state()
-        .map(|state| state.language.clone())
-        .unwrap_or_default();
+    let language: String = store.0.language.clone();
     match language.as_str() {
         "es" => [
             "Contacto",
@@ -143,12 +126,9 @@ pub fn get_contact_context_text(
 }
 
 pub fn get_footer_context_text(
-    store: StoreRef<PersistentStore<AppProperties>>,
+    store: (Rc<AppProperties>, Dispatch<AppProperties>),
 ) -> [&'static str; 5] {
-    let language: String = store
-        .state()
-        .map(|state| state.language.clone())
-        .unwrap_or_default();
+    let language: String = store.0.language.clone();
     match language.as_str() {
         "es" => [
             "Orlando Vargas",

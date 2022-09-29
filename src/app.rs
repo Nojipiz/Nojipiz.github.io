@@ -1,7 +1,7 @@
 use serde::{Deserialize, Serialize};
 use yew::prelude::*;
 use yew_router::prelude::*;
-use yewdux::prelude::Persistent;
+use yewdux::prelude::*;
 
 use crate::components::header::Header;
 use crate::routes::{switch, AppRoute};
@@ -16,13 +16,12 @@ pub fn app() -> Html {
     }
 }
 
-#[derive(Clone, Serialize, Deserialize)]
+#[derive(Clone, PartialEq, Eq, Deserialize, Serialize, Store)]
+#[store(storage = "local")]
 pub struct AppProperties {
     pub language: String,
     pub color_scheme: String,
 }
-
-impl Persistent for AppProperties {}
 
 impl Default for AppProperties {
     fn default() -> Self {
