@@ -17,7 +17,7 @@ pub fn app() -> Html {
 }
 
 #[derive(Clone, PartialEq, Eq, Deserialize, Serialize, Store)]
-#[store(storage = "local")]
+#[store(storage = "local", storage_tab_sync)]
 pub struct AppProperties {
     pub language: String,
     pub color_scheme: String,
