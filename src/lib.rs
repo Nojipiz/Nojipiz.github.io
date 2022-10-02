@@ -7,7 +7,6 @@ pub mod resources;
 pub mod routes;
 
 use wasm_bindgen::prelude::*;
-
 use app::App;
 
 #[global_allocator]

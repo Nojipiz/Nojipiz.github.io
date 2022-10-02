@@ -47,6 +47,7 @@ fn contact_ways_container(props: &ContactProps) -> Html {
                 image = {way.image.clone()}
                 text = {way.text.clone()}
                 contact_information = {way.contact_information.clone()}
+                url = {way.url.clone()}
             />
             }
         }).collect::<Html>()}
@@ -60,11 +61,13 @@ fn get_contact_ways_list(props: &ContactProps) -> [ContactWayProps; 2] {
             image: String::from("https://cdn-icons-png.flaticon.com/512/4542/4542248.png"),
             text: props.content[1].to_owned(),
             contact_information: String::from("nojipiz@gmail.com"),
+            url: String::from("mailto:nojipiz@gmail.com?subject=Let's%20talk%20about%20a%20project!&body=Hi%20Orlando%2C%20i%20have%20the%20best%20idea%20for%20a%20project!"),
         },
         ContactWayProps {
             image: String::from("https://cdn-icons-png.flaticon.com/512/4542/4542152.png"),
             text: props.content[2].to_owned(),
             contact_information: String::from("320201029"),
+            url: String::from("https://wa.link/rno3oe"),
         },
     ]
 }
@@ -72,13 +75,13 @@ fn get_contact_ways_list(props: &ContactProps) -> [ContactWayProps; 2] {
 #[function_component(ContactWay)]
 fn contact_way(props: &ContactWayProps) -> Html {
     html!(
-        <div class="contact_way">
+        <a class="contact_way" href={props.url.clone()}>
             <div class={"image_wrapper"}>
             <img src={props.image.clone()} alt={props.text.clone()} class={"contact_icon"}/>
             </div>
             <p class={"contact_information"}> {&props.contact_information} </p>
             <p> {&props.text.to_lowercase()} </p>
-        </div>
+        </a>
     )
 }
 
@@ -87,6 +90,7 @@ struct ContactWayProps {
     image: String,
     text: String,
     contact_information: String,
+    url: String,
 }
 
 #[derive(Properties, PartialEq)]
