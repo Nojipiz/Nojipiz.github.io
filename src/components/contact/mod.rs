@@ -1,6 +1,12 @@
 use crate::{app::AppProperties, languages::languages::get_contact_context_text};
-use yew::prelude::*;
+use wasm_bindgen::JsCast;
+use web_sys::{window, FormData, HtmlFormElement};
+use yew::{html::onsubmit::Event, prelude::*};
 use yewdux::prelude::use_store;
+
+use self::form_information::FormInformation;
+
+mod form_information;
 
 #[function_component(Contact)]
 pub fn contact() -> Html {
@@ -22,8 +28,12 @@ pub fn contact() -> Html {
 #[function_component(ContactForm)]
 fn contact_form(props: &ContactProps) -> Html {
     html! {
-        <>
-        <form class={"contact_form"}>
+        <form class={"contact_form"} onsubmit={|e:Event| {
+            e.prevent_default();
+            let form:&HtmlFormElement = &e.target().unwrap().unchecked_into::<HtmlFormElement>();
+            let form_information = FormInformation::from(FormData::new_with_form(form).unwrap());
+            window().unwrap().open_with_url(&form_information.create_url()).unwrap();
+        }}>
         <h1>{props.content[3].to_uppercase()}</h1>
             <div class={"inter_wrapper"}>
                 <input type="text" id="formName" name="name" placeholder={props.content[4]}/>
@@ -33,7 +43,6 @@ fn contact_form(props: &ContactProps) -> Html {
             <input type="text" id="formMessage" name="message" placeholder={props.content[7]}/>
             <button type="submit">{props.content[8]}</button>
         </form>
-        </>
     }
 }
 
@@ -75,7 +84,7 @@ fn get_contact_ways_list(props: &ContactProps) -> [ContactWayProps; 2] {
 #[function_component(ContactWay)]
 fn contact_way(props: &ContactWayProps) -> Html {
     html!(
-        <a class="contact_way" href={props.url.clone()}>
+        <a class="contact_way" href={props.url.clone()} target={"_blank"}>
             <div class={"image_wrapper"}>
             <img src={props.image.clone()} alt={props.text.clone()} class={"contact_icon"}/>
             </div>
