@@ -1,4 +1,4 @@
-@import "../../styles/_base";
+@import '../../styles/_base';
 
 .main_footer {
   @extend %Section;
@@ -10,18 +10,23 @@
     @extend %Center;
     position: absolute;
     right: 1rem;
+    text-decoration: none;
+    color: black;
   }
   .tech_logo {
     width: 2rem;
     margin: 0 0.5rem;
   }
 
-  @include media("<tablet") {
+  @include media('<tablet') {
+    flex-direction: column;
     p {
       font-size: 0.7rem;
     }
     .wasm_information {
       font-size: 0.5rem;
+      left: 0;
+      right: 0;
     }
     .tech_logo {
       width: 1.2rem;
