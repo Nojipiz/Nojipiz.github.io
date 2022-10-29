@@ -1,12 +1,8 @@
-@import "../../styles/_base";
+@import '../../styles/_base';
 
 .portfolio_section {
   @extend %Section;
-  background: linear-gradient(
-    180deg,
-    $background-color 6vw,
-    $background-contrast-color 0vw
-  );
+  background: linear-gradient(180deg, $background-color 6vw, $background-contrast-color 0vw);
 }
 
 .rigth_title {
@@ -42,6 +38,8 @@
       font-weight: 600;
     }
     .project_description {
+      text-align: justify;
+      font-size: 1.3rem;
       line-height: 1.5;
     }
   }
@@ -55,7 +53,7 @@
     width: 40%;
   }
 
-  @include media("<tablet") {
+  @include media('<tablet') {
     display: flex;
     flex-direction: column;
     padding: 0.8rem;
@@ -86,6 +84,5 @@
 }
 
 @function toRGB($color) {
-  @return "rgb(" + red($color) + ", " + green($color) + ", " + blue($color) +
-    ")";
+  @return 'rgb(' + red($color) + ', ' + green($color) + ', ' + blue($color) + ')';
 }
