@@ -23,13 +23,13 @@
     position: relative;
     margin: 1rem;
     .background_image {
-      width: 20rem;
+      width: 30rem;
     }
     .project_image {
       $offset_position: -2rem;
-      width: 8rem;
+      height: 15rem;
       position: absolute;
-      right: $offset_position;
+      right: ($offset_position - 3rem);
       bottom: $offset_position;
     }
   }
@@ -46,7 +46,7 @@
 
   .images_center {
     @extend %Center;
-    width: 40%;
+    width: 50%;
   }
   .info_center {
     @extend %Center;
