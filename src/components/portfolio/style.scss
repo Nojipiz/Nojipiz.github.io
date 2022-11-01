@@ -23,14 +23,24 @@
     position: relative;
     margin: 1rem;
     .background_image {
+      transition: all 0.2s ease-in-out;
       width: 30rem;
+      &:hover {
+        max-width: 80vw;
+        width: 40rem;
+      }
     }
     .project_image {
+      transition: all 0.1s ease-in-out;
       $offset_position: -2rem;
       height: 15rem;
       position: absolute;
       right: ($offset_position - 3rem);
       bottom: $offset_position;
+      &:hover {
+        max-height: 20vh;
+        height: 20rem;
+      }
     }
   }
   .info_container {
@@ -56,16 +66,17 @@
   @include media('<tablet') {
     display: flex;
     flex-direction: column;
-    padding: 0.8rem;
+    padding: 0.8rem 0;
     .images_container {
+      $offset_position: -1rem;
+      margin-left: $offset_position;
       .background_image {
         width: 60vw;
       }
       .project_image {
-        $offset_position: -1rem;
-        width: 20vw;
+        height: 6rem;
         position: absolute;
-        right: $offset_position;
+        right: $offset_position - 2rem;
         bottom: $offset_position;
       }
     }
