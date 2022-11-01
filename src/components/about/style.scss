@@ -1,4 +1,4 @@
-@import "../../styles/_base";
+@import '../../styles/_base';
 
 $component-width: 100%;
 
@@ -9,11 +9,7 @@ $component-width: 100%;
   align-items: center;
   text-align: justify;
   color: $background-contrast-color;
-  background: linear-gradient(
-    180deg,
-    $background-contrast-color 6vw,
-    $background-color 0vw
-  );
+  background: linear-gradient(180deg, $background-contrast-color 6vw, $background-color 0vw);
 }
 
 .left_title {
@@ -56,10 +52,10 @@ $component-width: 100%;
     width: 20%;
   }
 
-  @include media("<tablet") {
+  @include media('<tablet') {
     .information_container {
       p {
-        font-size: 1rem;
+        font-size: 0.9rem;
       }
     }
   }
@@ -96,11 +92,11 @@ $component-width: 100%;
     width: 3.5rem;
   }
 
-  @include media("<tablet") {
+  @include media('<tablet') {
     min-width: 8rem;
     padding: 0.5rem;
     .skill_title {
-      font-size: 1rem;
+      font-size: 0.9rem;
     }
     .skill_icon {
       width: 2rem;
@@ -138,9 +134,9 @@ $component-width: 100%;
   img {
     width: 20%;
   }
-  @include media("<tablet") {
+  @include media('<tablet') {
     p {
-      font-size: 1rem;
+      font-size: 0.9rem;
     }
   }
 }
@@ -199,14 +195,14 @@ $component-width: 100%;
       }
     }
 
-    @include media("<tablet") {
+    @include media('<tablet') {
       margin: 1rem 0.8rem;
       img {
         height: 3rem;
       }
       &:hover {
         span {
-          font-size: 1rem;
+          font-size: 0.9rem;
           bottom: -1.5rem;
         }
       }

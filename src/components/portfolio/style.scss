@@ -25,9 +25,6 @@
     .background_image {
       transition: all 0.2s ease-in-out;
       width: 30rem;
-      &:hover {
-        width: 40rem;
-      }
     }
     .project_image {
       transition: all 0.1s ease-in-out;
@@ -36,9 +33,6 @@
       position: absolute;
       right: ($offset_position - 3rem);
       bottom: $offset_position;
-      &:hover {
-        height: 20rem;
-      }
     }
   }
   .info_container {
@@ -70,18 +64,12 @@
       margin-left: $offset_position;
       .background_image {
         width: 60vw;
-        &:hover {
-          width: 60vw;
-        }
       }
       .project_image {
         height: 6rem;
         position: absolute;
         right: $offset_position - 2rem;
         bottom: $offset_position;
-        &:hover {
-          height: 6rem;
-        }
       }
     }
     .info_container {
