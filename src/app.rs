@@ -1,5 +1,7 @@
+use serde::{Deserialize, Serialize};
 use yew::prelude::*;
 use yew_router::prelude::*;
+use yewdux::prelude::*;
 
 use crate::components::header::Header;
 use crate::routes::{switch, AppRoute};
@@ -8,8 +10,24 @@ use crate::routes::{switch, AppRoute};
 pub fn app() -> Html {
     html! {
         <BrowserRouter>
-            //<Header />
-            <Switch<AppRoute> render={Switch::render(switch)} />
+            <Header />
+            <Switch<AppRoute> render={Switch::render(switch)}/>
         </BrowserRouter>
+    }
+}
+
+#[derive(Clone, PartialEq, Eq, Deserialize, Serialize, Store)]
+#[store(storage = "local", storage_tab_sync)]
+pub struct AppProperties {
+    pub language: String,
+    pub color_scheme: String,
+}
+
+impl Default for AppProperties {
+    fn default() -> Self {
+        AppProperties {
+            language: String::from("es"),
+            color_scheme: String::from("dark"),
+        }
     }
 }

@@ -1,0 +1,91 @@
+@import '../../styles/_base';
+
+.main_header {
+  width: 100vw;
+  height: 6vh;
+  position: fixed;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  background-color: $background-color;
+  z-index: 300;
+  padding: 0.8rem;
+  .header_wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-left: $side-margin;
+    margin-right: $side-margin;
+  }
+  @include media('<phone') {
+    padding: 1.5rem 0;
+    .header_wrapper {
+      flex-direction: column;
+    }
+  }
+}
+
+.navigation_section {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  a {
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 1.2vw;
+    color: white;
+    mix-blend-mode: difference;
+    opacity: 2;
+  }
+  .current_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    a {
+      font-weight: 600;
+    }
+    .current_line {
+      @extend %Line;
+      height: 0.3rem;
+      width: 110%;
+    }
+  }
+  @include media('<laptop') {
+    font-size: 1rem;
+    width: 80%;
+    a {
+      font-size: 1rem;
+    }
+  }
+  @include media('<tablet') {
+    width: 70%;
+    a {
+      font-size: 2vw;
+    }
+  }
+  @include media('<phone') {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    a {
+      font-size: 3vw;
+    }
+  }
+}
+
+.options_wrapper {
+  @extend %Center;
+  .property_button {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: $background-contrast-color;
+    .icon {
+      margin-right: 0.2rem;
+    }
+  }
+  @include media('<laptop') {
+    font-size: 1rem;
+  }
+}

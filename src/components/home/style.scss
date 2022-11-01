@@ -1,0 +1,94 @@
+@import '../../styles/_base';
+
+.home_section {
+  @extend %Section;
+  @extend %Center;
+  height: 95vh;
+  background-color: $background-color;
+  @include media('<laptop') {
+    flex-direction: column-reverse;
+  }
+}
+
+.home_title_container {
+  display: flex;
+  height: 45vh;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 200;
+}
+
+.home_lines_container {
+  margin-top: 0.8rem;
+  .home_line {
+    @extend %Line;
+    width: 40%;
+    height: 0.4rem;
+    margin-bottom: 0.4rem;
+  }
+  .home_line:last-of-type {
+    margin-left: 7rem;
+  }
+  @include media('<phone') {
+    margin-top: 0.4rem;
+    .home_line {
+      margin-bottom: 0.2rem;
+    }
+  }
+}
+.presentation_title {
+  $font-size: 3rem;
+  font-weight: 600;
+  font-size: $font-size;
+  color: $background-contrast-color;
+
+  b {
+    font-size: $font-size;
+    color: $accent-color;
+  }
+  @include media('<laptop') {
+    $font-size: 2.5rem;
+    font-size: $font-size;
+    b {
+      font-size: $font-size;
+    }
+  }
+
+  @include media('<tablet') {
+    $font-size: 6vw;
+    font-size: $font-size;
+    b {
+      font-size: $font-size;
+    }
+  }
+}
+
+.moon_container {
+  display: flex;
+  height: 35vh;
+  align-items: end;
+  @include media('<tablet') {
+    margin-top: 8vh;
+    justify-content: flex-end;
+  }
+  @include media('<phone') {
+    margin: 0;
+  }
+}
+
+#moonCanvas {
+  $size-moon: 20vw;
+  $min-size: 10rem;
+  min-width: $min-size;
+  min-height: $min-size;
+  width: $size-moon;
+  height: $size-moon;
+  outline: none;
+  z-index: 200;
+
+  @include media('<laptop') {
+    $min-size: 40vw;
+    min-width: $min-size;
+    min-height: $min-size;
+  }
+}

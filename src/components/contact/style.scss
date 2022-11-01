@@ -1,0 +1,138 @@
+@import '../../styles/_base';
+
+.contact_section {
+  @extend %Section;
+  @extend %Center;
+  flex-direction: column;
+  background-color: $background-color;
+  color: $background-contrast-color;
+  padding-top: 5rem;
+  .title_container {
+    @extend %Center;
+    flex-direction: column;
+    .line {
+      @extend %Line;
+      background-color: $accent-color;
+      width: 120%;
+      height: 0.5rem;
+    }
+    h1 {
+      @extend %SectionTitle;
+      margin: 0.1rem;
+    }
+  }
+  @include media('<tablet') {
+    padding-top: 0;
+  }
+}
+
+.contact_ways_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+  @include media('<tablet') {
+    margin-top: 2rem;
+  }
+}
+
+.contact_way {
+  @extend %Center;
+  border-radius: 2rem;
+  flex-direction: column;
+  background-color: $container-color;
+  color: $background-contrast-color;
+  min-width: 14rem;
+  min-height: 12rem;
+  padding: 1rem;
+  text-decoration: none;
+  transition: transform 0.2s;
+
+  p {
+    margin: 0.6rem 0rem 0rem 0rem;
+  }
+  .image_wrapper {
+    @extend %Center;
+    width: 100%;
+    height: 30%;
+    margin-bottom: 1rem;
+  }
+  .contact_information {
+    font-weight: 600;
+  }
+  .contact_icon {
+    filter: brightness(0) invert(1);
+    mix-blend-mode: difference;
+    width: 4rem;
+  }
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  @include media('<tablet') {
+    min-width: 10rem;
+    min-height: 10rem;
+    padding: 0.2rem;
+    p {
+      font-size: 0.7rem;
+    }
+    .contact_information {
+      font-size: 0.8rem;
+    }
+    .contact_icon {
+      width: 3rem;
+    }
+  }
+
+  @include media('<tablet') {
+    margin: 1rem;
+  }
+}
+
+.contact_form {
+  $space: 0.4rem;
+  margin: 4rem;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  .inter_wrapper {
+    @extend %Center;
+    input {
+      width: 50%;
+    }
+  }
+  input,
+  button {
+    @extend %Center;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 0.6rem;
+    margin: $space;
+    transition: transform 0.2s;
+    &:hover {
+      transform: scale(1.01);
+    }
+  }
+  input {
+    background-color: $container-color;
+  }
+  button {
+    background-color: $accent-color;
+  }
+  h1 {
+    @extend %SectionTitle;
+  }
+  @include media('<tablet') {
+    margin: 2rem;
+    padding: 0.3rem;
+    width: 100%;
+    input,
+    button {
+      font-size: 1rem;
+    }
+    h1 {
+      text-align: center;
+    }
+  }
+}

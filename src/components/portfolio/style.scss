@@ -1,0 +1,91 @@
+@import '../../styles/_base';
+
+.portfolio_section {
+  @extend %Section;
+  background: linear-gradient(180deg, $background-color 6vw, $background-contrast-color 0vw);
+}
+
+.rigth_title {
+  @extend %BigTitle;
+  text-align: right;
+}
+
+.project_container {
+  @extend %Center;
+  @extend %ShadowBox;
+  background: $background-contrast-color;
+  color: $background-color;
+  margin-top: 5rem;
+  font-size: 1.2rem;
+  padding: 3rem 0;
+
+  .images_container {
+    position: relative;
+    margin: 1rem;
+    .background_image {
+      transition: all 0.2s ease-in-out;
+      width: 30rem;
+    }
+    .project_image {
+      transition: all 0.1s ease-in-out;
+      $offset_position: -2rem;
+      height: 15rem;
+      position: absolute;
+      right: ($offset_position - 3rem);
+      bottom: $offset_position;
+    }
+  }
+  .info_container {
+    .project_title {
+      font-weight: 600;
+    }
+    .project_description {
+      text-align: justify;
+      font-size: 1.3rem;
+      line-height: 1.5;
+    }
+  }
+
+  .images_center {
+    @extend %Center;
+    width: 50%;
+  }
+  .info_center {
+    @extend %Center;
+    width: 40%;
+  }
+
+  @include media('<tablet') {
+    display: flex;
+    flex-direction: column;
+    padding: 0.8rem 0;
+    .images_container {
+      $offset_position: -1rem;
+      margin-left: $offset_position;
+      .background_image {
+        width: 60vw;
+      }
+      .project_image {
+        height: 6rem;
+        position: absolute;
+        right: $offset_position - 2rem;
+        bottom: $offset_position;
+      }
+    }
+    .info_container {
+      .project_title {
+        font-size: 1rem;
+      }
+      .project_description {
+        font-size: 0.9rem;
+      }
+    }
+    .info_center {
+      width: 90%;
+    }
+  }
+}
+
+@function toRGB($color) {
+  @return 'rgb(' + red($color) + ', ' + green($color) + ', ' + blue($color) + ')';
+}
