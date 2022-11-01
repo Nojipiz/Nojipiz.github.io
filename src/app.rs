@@ -27,7 +27,7 @@ impl Default for AppProperties {
     fn default() -> Self {
         AppProperties {
             language: String::from("es"),
-            color_scheme: String::from("dark"),
+            color_scheme: String::from("light"),
         }
     }
 }
