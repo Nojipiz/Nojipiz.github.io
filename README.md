@@ -36,4 +36,3 @@ I was checking a lot of others developers portfolios, here is a list of the most
 - [Koun Yagi](https://kuon.space/?ref=hackernoon.com)
 - [Takuya Matsuyama](https://www.craftz.dog/)
 - [Yadurani Lopez](https://yadulopez.com/)
-
