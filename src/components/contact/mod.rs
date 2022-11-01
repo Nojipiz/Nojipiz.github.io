@@ -75,7 +75,7 @@ fn get_contact_ways_list(props: &ContactProps) -> [ContactWayProps; 2] {
         ContactWayProps {
             image: String::from("https://cdn-icons-png.flaticon.com/512/4542/4542152.png"),
             text: props.content[2].to_owned(),
-            contact_information: String::from("320201029"),
+            contact_information: String::from("3202010190"),
             url: String::from("https://wa.link/rno3oe"),
         },
     ]
