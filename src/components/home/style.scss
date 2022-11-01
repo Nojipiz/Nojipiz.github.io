@@ -1,11 +1,11 @@
-@import "../../styles/_base";
+@import '../../styles/_base';
 
 .home_section {
   @extend %Section;
   @extend %Center;
   height: 95vh;
   background-color: $background-color;
-  @include media("<laptop") {
+  @include media('<laptop') {
     flex-direction: column-reverse;
   }
 }
@@ -15,6 +15,7 @@
   height: 45vh;
   flex-direction: column;
   justify-content: center;
+  z-index: 200;
 }
 
 .home_lines_container {
@@ -28,7 +29,7 @@
   .home_line:last-of-type {
     margin-left: 7rem;
   }
-  @include media("<phone") {
+  @include media('<phone') {
     margin-top: 0.4rem;
     .home_line {
       margin-bottom: 0.2rem;
@@ -40,11 +41,12 @@
   font-weight: 600;
   font-size: $font-size;
   color: $background-contrast-color;
+
   b {
     font-size: $font-size;
     color: $accent-color;
   }
-  @include media("<laptop") {
+  @include media('<laptop') {
     $font-size: 2.5rem;
     font-size: $font-size;
     b {
@@ -52,7 +54,7 @@
     }
   }
 
-  @include media("<tablet") {
+  @include media('<tablet') {
     $font-size: 4vh;
     font-size: $font-size;
     b {
@@ -65,11 +67,11 @@
   display: flex;
   height: 35vh;
   align-items: end;
-  @include media("<tablet") {
+  @include media('<tablet') {
     margin-top: 8vh;
     justify-content: flex-end;
   }
-  @include media("<phone") {
+  @include media('<phone') {
     margin: 0;
   }
 }
@@ -82,8 +84,9 @@
   width: $size-moon;
   height: $size-moon;
   outline: none;
+  z-index: 200;
 
-  @include media("<laptop") {
+  @include media('<laptop') {
     $min-size: 40vw;
     min-width: $min-size;
     min-height: $min-size;
