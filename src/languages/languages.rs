@@ -19,10 +19,10 @@ pub fn get_home_content_text(
     match language.as_str() {
         "es" => [
             "Hola, mi nombre es ",
-            "David",
+            "Orlando",
             "Soy desarrollador de software",
         ],
-        _ => ["Hello, I'm ", "David", "I'm a software developer"],
+        _ => ["Hello, I'm ", "Orlando", "I'm a software developer"],
     }
 }
 
