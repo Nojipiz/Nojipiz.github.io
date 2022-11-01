@@ -1,30 +1,33 @@
-# My Awesome Yew App
+# Hello fellow developers!
 
-This is the official base template for [Create Yew App](https://github.com/jetli/create-yew-app).
+A pretty simple software developer portfolio, contains a little bit about me and my work :D
 
-## How to install
+## Tech Stack
+This is first approach to [WASM](https://webassembly.org/) targets, i have chose [Rust](https://www.rust-lang.org/) + [Yew framework](https://yew.rs/) to create this site.
 
+Also, the state management runs over [Yewdux](https://github.com/intendednull/yewdux), which obviously is the [Redux](https://redux.js.org/) equivalent for Yew.
+
+The styles has been created with [Sass](https://sass-lang.com/), because how likes plain css? ._. 
+And the Yew styles alternatives are a work in progress right now.
+
+## Do you want to run  the project?
+Yeah sure but you will need a lot of dependencies and Rust stuff, the live demo is [here](https://nojipiz.github.io/)
+
+### Dependencies: 
+- Rust
+- wasm-pack 
+- npm or yarn
+- Node
+
+Once you have the dependencies, you can start the server running:
 ```sh
-npm install
-```
-
-## How to run in debug mode
-
-```sh
-# Builds the project and opens it in a new browser tab. Auto-reloads when the project changes.
 npm start
 ```
+## Inspiration
+I was checking a lot of others developers portfolios, here is a list of the most inspiring for me.
 
-## How to build in release mode
+- [Marc Mäurer](https://maeurer.dev/)
+- [Koun Yagi](https://kuon.space/?ref=hackernoon.com)
+- [Takuya Matsuyama](https://www.craftz.dog/)
+- [Yadurani Lopez](https://yadulopez.com/)
 
-```sh
-# Builds the project and places it into the `dist` folder.
-npm run build
-```
-
-## How to run unit tests
-
-```sh
-# Runs tests
-npm test
-```
