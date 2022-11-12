@@ -30,10 +30,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  width: 100%;
-  @include media('<tablet') {
-    margin-top: 2rem;
-  }
+  width: 70%;
+  margin-top: 2rem;
 }
 
 .contact_way {
@@ -73,6 +71,7 @@
     min-width: 10rem;
     min-height: 10rem;
     padding: 0.2rem;
+    margin: 1rem;
     p {
       font-size: 0.7rem;
     }
@@ -83,10 +82,6 @@
       width: 3rem;
     }
   }
-
-  @include media('<tablet') {
-    margin: 1rem;
-  }
 }
 
 .contact_form {
@@ -94,7 +89,7 @@
   margin: 4rem;
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 70%;
   .inter_wrapper {
     @extend %Center;
     input {
