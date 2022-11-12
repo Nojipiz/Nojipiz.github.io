@@ -31,7 +31,7 @@ fn who_i_am_component(props: &AboutProps) -> Html {
                 </div>
                 <p>{props.content[1]}</p>
             </div>
-            <img src="https://avatarfiles.alphacoders.com/229/229959.png"/>
+            <img class={"profile_photo"} src="https://github.com/Nojipiz/Nojipiz/blob/main/resources/PhotoTransparent.png?raw=true"/>
         </div>
     }
 }
