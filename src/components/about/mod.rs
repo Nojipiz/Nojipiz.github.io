@@ -64,7 +64,7 @@ fn skill_topic(props: &SkillTopicProps) -> Html {
 fn my_work(props: &AboutProps) -> Html {
     html! {
         <div class={"my_work_container"}>
-            <img src="https://avatarfiles.alphacoders.com/229/229959.png"/>
+            <img class={"coding_img"} src="https://raw.githubusercontent.com/Nojipiz/Nojipiz/main/resources/CodingGif.webp"/>
             <div class={"content_wrapper"}>
                 <div class={"title_container"}>
                     <div class="line"/>
