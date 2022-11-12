@@ -64,6 +64,24 @@ $component-width: 100%;
       }
     }
   }
+
+  @include media('<phone') {
+    flex-direction: column-reverse;
+    .information_container {
+      width: 100%;
+      margin: 2rem 0;
+    }
+    .profile_photo {
+      width: 30%;
+      border-width: 0.15rem;
+    }
+    .title_container {
+      .line_bottom {
+        margin-right: 2rem;
+        margin-left: 0;
+      }
+    }
+  }
 }
 
 .my_skills_container {
@@ -136,12 +154,23 @@ $component-width: 100%;
     align-items: flex-start;
     width: 50%;
   }
-  img {
-    width: 20%;
+  .coding_img {
+    width: 30%;
   }
   @include media('<tablet') {
     p {
       font-size: 0.9rem;
+    }
+  }
+
+  @include media('<phone') {
+    flex-direction: column;
+    .content_wrapper {
+      margin: 2rem 0;
+      width: 100%;
+    }
+    .coding_img {
+      width: 80%;
     }
   }
 }
